@@ -115,9 +115,8 @@ class PageComponentFactory extends \Nette\Object
         }
         
         $page->create(TRUE);
-        $this->saveLog(STR_533 . ' ' . $page->title);
         $this->presenter->flashMessage(MSG_NEW_PAGE_SUCCESS, 'success');
-	$this->presenter->redirect('Page:default');
+	    $this->presenter->redirect('Page:default');
     }
     
     /**
@@ -146,10 +145,9 @@ class PageComponentFactory extends \Nette\Object
             $tag->setDatabase($this->database);
             $tag->create();
         }
-        
-        $this->saveLog(STR_534 . ' ' . $page->title);
+
         $this->presenter->flashMessage(STR_535 . ' <a href="/' . $page->link . '/" target="_blank">"' . $page->title . '"</a> ' . STR_530, 'success');
-	$this->presenter->redirect('this');
+	    $this->presenter->redirect('this');
     }
         
         
@@ -159,20 +157,5 @@ class PageComponentFactory extends \Nette\Object
     public function __destruct()
     {
         unset($this->pages);
-    }
-    
-    /**
-     * 
-     * @param type $action
-     */
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92.' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
     }
 }

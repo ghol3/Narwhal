@@ -48,18 +48,12 @@ $(function () {
                     <span class="topbar-email">{$settings->sitename}</span>
                 </div><!-- end social icons -->
             </div><!-- end columns -->
-            {snippet cart}
             <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
-                <div class="topmenu">
-                    <?php $countp = count($cart->getProducts());?>
-                    <span class="topbar-cart"><span class="fa fa-shopping-cart clr"></span> <a n:href="Homepage:cart">{$countp} {if $countp == 0} produktov {elseif $countp == 1} produkt {elseif $countp == 2 || $countp == 3} produty {else} produktov{/if} - {$cart->getTotalPrice(true)|number:2} €</a></span>
-                </div><!-- end top menu -->
             	<div class="callus">
                     <span class="topbar-email"><span class="fa fa-envelope clr"></span> <a href="mailto:name@yoursite.com">{$settings->site_email}</a></span>
                     <span class="topbar-phone"><span class="fa fa-phone clr"></span> {$settings->phone}</span>
                 </div><!-- end callus -->
             </div><!-- end columns -->
-            {/snippet}
         </div><!-- end container -->
     </div>
     
@@ -72,7 +66,7 @@ $(function () {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="{link Homepage:default}"><img src="{$basePath}/images/frontend/logo/logo.png" width="280" class="hd-100p" alt="logo"/></a>
+                    <a href="{link Homepage:default}"><img src="{$basePath}/images/frontend/logo/logo.jpg" width="280" height="50" alt="logo"/></a>
         	</div><!-- end navbar-header -->
                 
 		<div id="navbar-collapse-1" class="navbar-collapse collapse navbar-right">

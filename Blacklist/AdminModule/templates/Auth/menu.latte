@@ -54,42 +54,12 @@ BODY{ background:#eee;overflow:auto;padding:0;margin:0;}
 
 
 <div style="margin-bottom:18px">
-<form action="{link Order:addNewOrder}" target="_blank" method="post" onsubmit="if(!confirm('<?php print(STR_23); ?>'))return false;else sb();">
-                    <input name="novykod" value="" type="hidden">
-                    <input value="<?php print(STR_3); ?>" style="width:100%;font-weight:bold;font-size:11px;" type="submit">
-                </form>
-</div>
-
-{if $user->isAllowed('Admin:Order')}<a href="{link Order:new}" onclick="toggleA(this)" id="xo" class="mclicked" target="frm"><span class="num"> <b>{$newCount}</b></span><?php print(STR_4); ?></a>{/if}
-{if $user->isAllowed('Admin:Order')}<a href="{link Order:default}" onclick="toggleA(this)" target="frm"><?php print(STR_5); ?></a>{/if}
-{if $user->isAllowed('Admin:Order')}<a href="{link Order:broken}" onclick="toggleA(this)" target="frm"><?php print(STR_6); ?></a>{/if}
-{if $user->isAllowed('Admin:Export')}<a class="" href="{link Export:default}" onclick="toggleA(this)" target="frm"><span id="export" class="num"></span><?php print(STR_7); ?></a>{/if}
-
-
 <br>
 
-<p><span><?php print(STR_0); ?></span></p>
-<script type="text/javascript">
-function check_unread(){
-	var o=$('unread');
-	gtimer.add(500, 'sin', function(n){ setOpacity(o,n);}, 10, 0);
-	setTimeout(function(){
-		get('notes_func.php?get_notes_count=1', function(s){
-			o.innerHTML = s > 0 ? s : '';
-			setOpacity(o, 10);
-		})
-	},1000);
-}
-setInterval(check_unread, 60*1000); // minuta
-</script>
 
-
-{if $user->isAllowed('Admin:Dealer')}<a href="{link Dealer:default}" onclick="toggleA(this)" target="frm"><?php print(STR_8); ?></a>{/if}
-{if $user->isAllowed('Admin:Warehouse')}<a class="" href="{link Warehouse:default}" onclick="toggleA(this)" target="frm"><?php print(STR_9); ?></a>{/if}
 
 <br>
 <p><span>OBSAH WEBU</span></p>
-{if $user->isAllowed('Admin:Product')}<a href="{link Product:default}" onclick="toggleA(this);" target="frm"><?php print(STR_10); ?></a>{/if}
 {if $user->isAllowed('Admin:Page')}<a href="{link Page:default}" onclick="toggleA(this);" target="frm"><?php print(STR_11); ?></a>{/if}
 {if $user->isAllowed('Admin:Article')}<a href="{link Article:default}" onclick="toggleA(this);" target="frm"><?php print(STR_12); ?></a>{/if}
 {if $user->isAllowed('Admin:Menu')}<a href="{link Menu:default}" onclick="toggleA(this);" target="frm"><?php print(STR_13); ?></a>{/if}
@@ -101,11 +71,7 @@ setInterval(check_unread, 60*1000); // minuta
 {if $user->isAllowed('Admin:User')}<a href="{link User:default}" onclick="toggleA(this);" target="frm"><?php print(STR_17); ?></a>{/if}
 {if $user->isAllowed('Admin:Task')}<a href="{link Task:default}" onclick="toggleA(this);" target="frm"><?php print(STR_18); ?></a>{/if}
 {if $user->isAllowed('Admin:Settings')}<a href="{link Settings:default}" onclick="toggleA(this);" target="frm"><?php print(STR_19); ?></a>{/if}
-{if $user->isAllowed('Admin:Settings')}<a href="{link Settings:eshop}" onclick="toggleA(this);" target="frm"><?php print(STR_20); ?></a>{/if}
-{if $user->isAllowed('Admin:Language')}<a href="{link Language:default}" onclick="toggleA(this);" target="frm"><?php print(STR_21); ?></a>{/if}
 {if $user->isAllowed('Admin:Settings')}<a href="{link Settings:testdisplay}" onclick="toggleA(this);" target="frm"><?php print(STR_22); ?></a>{/if}
-{if $user->isAllowed('Admin:Log')}<a href="{link Log:default}" onclick="toggleA(this);" target="frm"><?php print(STR_398); ?></a>{/if}
-<a href="http://webmail.antiradary.sk/" onclick="toggleA(this);" target="_blank"><?php print(STR_399); ?></a>
 </div>
 </div>
 

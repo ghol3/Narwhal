@@ -81,7 +81,6 @@ class PanelPresenter extends BasePresenter
         $panel = $this->factory->getById($id);
         $panel->remove();
         $this->flashMessage(STR_500 . ' "' . $panel->name . '" ' . STR_435, 'success');
-        $this->saveLog(STR_501 . ' ' . $panel->name, $this->database);
     }
     
     /**
@@ -92,7 +91,6 @@ class PanelPresenter extends BasePresenter
         $priority = isset($_POST['priority']) ? $_POST['priority'] : array();
         $this->factory->updateAll($priority);
         $this->flashMessage(STR_502, 'success');
-        $this->saveLog(STR_503 , $this->database);
         $this->redirect('Panel:default');
     }
 }

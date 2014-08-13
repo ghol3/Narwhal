@@ -116,9 +116,8 @@ class MenuPresenter extends BasePresenter
     public function handleDelete($id)
     {
         $menu = $this->menus->getById($id);
-	$menu->remove();
+	    $menu->remove();
         $this->flashMessage(STR_457 . ' ("' . $menu->name . '") ' . STR_458, 'success');
-        $this->saveLog(STR_459 .' ' . $menu->name, $this->database);
     }
     
     /**
@@ -131,7 +130,6 @@ class MenuPresenter extends BasePresenter
         $parent = (isset($_POST['parent']) ? $_POST['parent'] : array());
         $this->menus->updateAll($priority, $visibility, $parent);
         $this->flashMessage(STR_460, 'success');
-        $this->saveLog(STR_461, $this->database);
         $this->redirect('Menu:default');
     }
 }

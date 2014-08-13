@@ -20,13 +20,10 @@ use
  */
 class CategoryPresenter extends BasePresenter
 {
-    
+
     /**
-     *
-     * @var type 
+     * @var \Blacklist\Factory\CategoryFactory|null
      */
-    private $productFactory = NULL;
-    
     private $categoryFactory = NULL;
     
     /**
@@ -45,7 +42,6 @@ class CategoryPresenter extends BasePresenter
     {
         $this->database = $db;
         parent::__construct($db);
-        $this->productFactory = new \Blacklist\Factory\ProductFactory($db);
         $this->categoryFactory = new \Blacklist\Factory\CategoryFactory($db);
     }
     
@@ -77,7 +73,5 @@ class CategoryPresenter extends BasePresenter
         }
         $this->template->categories = $categoryF->getAll();
         $this->template->rarticles = $articleF->getAll();
-        $productF = new \Blacklist\Factory\ProductFactory($this->database);
-        $this->template->products = $productF->getByCategory($this->template->category->id);
     }
 }

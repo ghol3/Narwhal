@@ -2,14 +2,277 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcebf1fc-b3bf-41a8-8486-4e2289ae32b8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/Narwhal.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/ProductComponentFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Product/EditProductForm.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Product/NewProductForm.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/DealerPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/ExportPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/ForumPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/LanguagePresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/LogPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/OrderPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/ProductPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/WarehousePresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Dealer/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Dealer/map.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Export/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Forum/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Forum/new.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Language/add.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Language/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Language/edit.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Log/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/broken.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/edit.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/editOrder.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/editProducts.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/emails.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/new.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/print.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Order/search.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Product/add.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Product/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Product/edit.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Settings/eshop.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Warehouse/default.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Warehouse/log.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/ForumPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/ProductPresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/Forum/add.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/Forum/post.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/Forum/posts.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/Product/show.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/components/form.latte" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Control.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Dealers/DealerFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Dealers/DealerObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Forum/PostFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Forum/PostObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Invoices/Fpdf.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Invoices/Invoice.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Logs/LogFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Logs/LogObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/Cart.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/CartProductObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/LanguageFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/LanguageObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/OrderEmailObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/OrderFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/OrderObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/OrderProductsObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/WarehouseFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/WarehouseLog.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/WarehouseLogFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Orders/WarehouseObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductAdditionalFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductAdditionalObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductImageObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductTabFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductTabObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductTypeFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Products/ProductTypeObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/Settings/EshopSettingsObject.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blacklist/models/plugin.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/Nette.Configurator/dbbde318d1c881072bfac93c07ebec37.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/Nette.Configurator/dbbde318d1c881072bfac93c07ebec37.php.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Configurator/_-abb45788f1a465bb15821c765b7e3ab6.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_01bf0a63d5fb4948c9b0383a48ada16c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_06f6e79c5e684f35bc577348105d6f55" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_07414f4e15ca943e6cde032dec85d92f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_14486853754ed22b6c5b9844d44f35a6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_157e508f13211158dc155b54425f889b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_25708f5e08aec43bcc8483b4e54ca8fd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_27a185fec8cd4b2476ae0cc7c0b92dc9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_2b7f44c0bb592dce89166cbbeb31b758" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_2eff34931f5ff4d499c717bf1e7ad29f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_306c4f8e5f54ea42c634e6be9daea012" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_3099106bc6400aa9845ca46c746a3db9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_35c737d8065679311032148dca9d54c2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_3a658dd910d907b2a7df0ab7257d4e3d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_3a914a477b8a57f39847c33e089cfd26" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_3d452043a055b4dff11e234fefadda38" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_41f4f57dd41e209c9e43d4b0c6051b5d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_424116a7d6c9dcbc0c52266d2b8f9238" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_424b13715e5d4def9f365bc185c04e5b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_4368f63904584f78d7992734008e9d7a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_482669620233145450e3830b99a2846d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_4952421e892651d3b6dc349b5e67b684" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_4bd8ced90177da4d9ea3b9fa753dd555" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_507c97bc4ee2b9e89cada9fa0b62e541" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_512f7eaa246eb6de13d2a653598a8240" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_53b509f08aa0ab29b8afe491a2cbc8ae" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_54944f5431030536c75cfc5a2042a01f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_54ef873eec461a52408fe9e43015ee94" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_57118ce38a1a29da25c6fcf60e682d48" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_59e5e9a204f6b4ef0ac1f4e4657119bf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_5afa17efc67847386a09133222f9a431" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_5bc965f60063981523da8efa1ba17528" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_5bdc523c3095594a2b86f67d75ac1ffc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_5d76cb5335aa42e8837d66984fbc82e4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_5f99b0e21b2d55301f5235825a73162b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_668e08e140138de06cdaa2aa121cedcf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_6c1a80efb27b6349b020e41f0efb5c4f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_6dde2708768a43acf0fbb63c0ee976b5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_6e4f0ad675f8532d83c07097920aee6c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_6f7e4549ac948f1c77e51a1c212d1817" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_71bfff58fb4fd24863d470082fd99b1e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_720d554296a314b759fba9f4eef58f06" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_735c867d5ce38d2af61d1c9b2bac5c97" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_744fe283e8016bcce91138ed81015429" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_79ea784e045269f9bd2c634ebd11d1b8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_7dfce50da0dfda3cc19fdfb98e530f13" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_7f7819bf5a6c37e4a8a9044dd9ab66f5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_831816bfdb738e528643a26d3231e8f0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_859594e2f4de80023393f515c55340b8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_88463fb0c052f58798addfa7bc2bd2e2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_90fb08c8560e7d279b037ea2caf64a7a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_9fa678c7a484693949e2f3785c355466" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_a2d43baa703b112bdb3e250d7a82e2f3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_a60ed9886993cf45fd7133aff5002a7f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_a767dcfbf81040630a30421b9fb73682" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_ab2857d31624fdc681145eec853c97bc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_ae851d747f0b9610355c7a69411e967c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_aee1ed7cff03a8bbef1be391a80b1a31" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_b0f8f4520c3cf67b949d9dff20c5cf05" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_b5d43ece613d8740019df5f081ab9217" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_b671f206e9c538cc5b11fd7895602394" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_b855c57dd04953ead69571e17ec7bbb3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_b86e58378e09ea2f66238fcf23bb9367" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_bbe017d286647d03bbfef117c8783e4f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_bcbf8ea8c039689aef331cd940bd1e54" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_bccf86bbd4693550861f2064ae4dc567" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_c2e65ed6816e2f1d0dcc51d75872cbad" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_c2ebb329e1319eeee521b3a33883dc41" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_c45bdff871386d95a01980ed307b3676" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_c7ef9beac8d784db28c51f104d12edf9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_c9dfc4822567a7564ee14e9db7e8fb10" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_cc1e574bde90c9738a9ef9d986a6cb70" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_d1e4177959e971f528d73e372b2976f6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_d207f4c2fb1d1af02a4b23b64009f79f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_d46c6ad89504aeb06560188d955be48a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_da9f6d9e0c0166985b5fbd52f4e66b9e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_e008c1c559a7bf83dfbc97407becfcf5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_e0d3778d29c42f8ca0bff8269cbfbd62" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_e8b6048c293a53421f9db45544e345c5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_ea9838752a3335904b31d865340f634b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_eafdd4d888c972b43c1c2faed048d6a8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_ed70f670134f9b55e9ecb7b01eaa806c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_f60c0c55260e3b2d513f71f42d69bdda" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_fb865a810075a4b57aa91bdf0f5c7824" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_fbde0873f998ffe026ca2aeae8914290" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_fe633560ef15b440575b3bcc3a57ea5b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.117b217c9e1549fa617028e9112cd106/_ff7769061093f4758b74095b78506bf3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_3a658dd910d907b2a7df0ab7257d4e3d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_eafdd4d888c972b43c1c2faed048d6a8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Article.default.latte-372990dbb93c78e92e18d408e7feea61.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Auth.Login.latte-2047e751bc6f25b733a7f71210238996.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Auth.menu.latte-725989ef30933ab0766348e323849f95.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Auth.top.latte-216eef7d9b117da6b04d6b0dece5bbd4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Category.default.latte-ca9418661b6f245656550311f3caaf1a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Category.show.latte-95f2667124d99ca92c3e09ea285a0dc4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Dealer.default.latte-9121da15b73bc4a8ed594ee0008a446e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Export.default.latte-2b8b7bd92298e4735bc00beeca9e5b7b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Homepage.default.latte-2bc37f8b15fd5575d7a2f69fe0ed667d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Language.default.latte-6dd4120227053677af82000f4860ace0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Menu.default.latte-4bbf54200eeb05fcf6436cab7859c190.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_New.Contact.latte-d657962d95394c067e14d64295c5f34b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_New._layout.latte-b9715b144b5323ea71750362421ba529.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_New.default.latte-aed1ca81c795e829bd70eb76aeefaeb3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_New.showArticle.latte-7fc5d9e8438828310335694e4eafc946.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_New.showCategory.latte-79dc812f3b50e46c8eaf68275d99a55b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_New.showproduct.latte-82e563a4e93d8b75c59458598faf19a7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.broken.latte-314bd57c0326b8d57c6361120ec167ae.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.default.latte-be20f7e8cf457c1661f2a0cbb2f6eaad.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.edit.latte-cc1eb1e132592b54f93727bfc2c01ad1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.editProducts.latte-fdb14cdae9859418c04b2032795cdaff.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.emails.latte-7e2de9e272ce148a2976a9f18743c486.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.new.latte-f511e2cd416186505b0deee9cdf8b468.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Order.print.latte-41f4e8e8f1cdc44d38547a4dd79301d4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Page.default.latte-01fa99486a19a1e386490493b1e55cca.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Panel.default.latte-9e696baf0debabcc11d2c2400ae23346.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Product.default.latte-40e4ff057779dda428e5d64d2b6db28b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Product.edit.latte-8824ff0b02890b413f642ebd0ddb7784.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Product.show.latte-f1688b95bd89971b55131d883079009e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Settings.default.latte-32e5574cca4dfb0115b1b18d981f0a09.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Settings.eshop.latte-344406b6be474de9523afdba8f2df4da.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Task.default.latte-0516850afd9687e8a192f2dee6e933b2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_User.default.latte-ed689b57dadeca3b24727de0f98995f8.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Warehouse.default.latte-cf75d2242b21bfdd9049a8d0d425a671.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Widget.default.latte-33cf0a5968174efac855fbcd861ce3ea.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Widget.edit.latte-dee716d3bc3f30fdea671dc742726674.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_templates._layout.latte-786cc06341640e451c266fca802e2c51.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_templates._layout.latte-881c11faa836db9c8a2be507c69c6fe7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.RobotLoader/_98abfe870d3d9a6e1c48a1c624f5bc1d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura618.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura619.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura620.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura621.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura622.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura623.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura624.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura625.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura626.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura627.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura628.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura629.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura630.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura633.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura634.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura635.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura637.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura640.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/faktura641.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/faktury/razitko-s-podpisem.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/faktury/razitko.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/faktury/razitko.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/faktury/razitko2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/images/frontend/logo/logo.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/@layout.latte" afterPath="$PROJECT_DIR$/Blacklist/FrontModule/templates/@layout.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/ArticleComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/ArticleComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/ArticlePresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/ArticlePresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/AuthPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/AuthPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/BasePresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/BasePresenter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/BasePresenter.php" afterPath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/BasePresenter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/config.local.neon" afterPath="$PROJECT_DIR$/Config/config.local.neon" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/CategoryComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/CategoryComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/CategoryPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/CategoryPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/CategoryPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/CategoryPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/HomepagePresenter.php" afterPath="$PROJECT_DIR$/Blacklist/FrontModule/presenters/HomepagePresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/MenuComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/MenuComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/MenuPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/MenuPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PageComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PageComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/PagePresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/PagePresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PanelComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PanelComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/PanelPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/PanelPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/models/Settings/SettingsAction.php" afterPath="$PROJECT_DIR$/Blacklist/models/Settings/SettingsAction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/SettingsComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/SettingsComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/SettingsPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/SettingsPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/TaskComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/TaskComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/TaskPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/TaskPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/UserComponentFactory.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/UserComponentFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/UserPresenter.php" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/presenters/UserPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Configurator/_-5fc3ebb60fa77cf7c0b1c874ba659b4e.php" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Configurator/_-5fc3ebb60fa77cf7c0b1c874ba659b4e.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_07414f4e15ca943e6cde032dec85d92f" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_07414f4e15ca943e6cde032dec85d92f" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_4bd8ced90177da4d9ea3b9fa753dd555" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_4bd8ced90177da4d9ea3b9fa753dd555" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_515161819b55029072d7b9b57bdcd375" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_515161819b55029072d7b9b57bdcd375" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_54944f5431030536c75cfc5a2042a01f" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_54944f5431030536c75cfc5a2042a01f" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_54ef873eec461a52408fe9e43015ee94" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_54ef873eec461a52408fe9e43015ee94" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_5bdc523c3095594a2b86f67d75ac1ffc" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_5bdc523c3095594a2b86f67d75ac1ffc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.RobotLoader/_6467de7d6565c4aec3c049acb50b0cf7" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.RobotLoader/_6467de7d6565c4aec3c049acb50b0cf7" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_7dfce50da0dfda3cc19fdfb98e530f13" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_7dfce50da0dfda3cc19fdfb98e530f13" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Homepage.default.latte-6d14c34aef13dc60911a1ab41dfc9726.php" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_Homepage.default.latte-6d14c34aef13dc60911a1ab41dfc9726.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_a60ed9886993cf45fd7133aff5002a7f" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_a60ed9886993cf45fd7133aff5002a7f" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_ae851d747f0b9610355c7a69411e967c" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_ae851d747f0b9610355c7a69411e967c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_c9dfc4822567a7564ee14e9db7e8fb10" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_c9dfc4822567a7564ee14e9db7e8fb10" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_da9f6d9e0c0166985b5fbd52f4e66b9e" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_da9f6d9e0c0166985b5fbd52f4e66b9e" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_e8b6048c293a53421f9db45544e345c5" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.Database.195c5c37015a3a92ca25cd14b81fff16/_e8b6048c293a53421f9db45544e345c5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_templates._layout.latte-d2bb807250772fd3ee65faf05d636f7d.php" afterPath="$PROJECT_DIR$/Temp/cache/_Nette.FileTemplate/_templates._layout.latte-d2bb807250772fd3ee65faf05d636f7d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/login.latte" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/login.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/menu.latte" afterPath="$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/menu.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blacklist/FrontModule/templates/Category/show.latte" afterPath="$PROJECT_DIR$/Blacklist/FrontModule/templates/Category/show.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Narwhal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,13 +295,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.local.neon" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Config/config.local.neon">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="@layout.latte" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/templates/@layout.latte">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="14" selection-start="85" selection-end="89" vertical-scroll-proportion="0.12" vertical-offset="0" max-vertical-offset="750">
+            <state line="68" column="130" selection-start="3451" selection-end="3451" vertical-scroll-proportion="0.35602096" vertical-offset="748" max-vertical-offset="2580">
               <folding />
             </state>
           </provider>
@@ -57,8 +317,34 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Blacklist/FrontModule/presenters/BasePresenter.php" />
         <option value="$PROJECT_DIR$/Config/config.local.neon" />
+        <option value="$PROJECT_DIR$/Blacklist/models/Settings/SettingsAction.php" />
+        <option value="$PROJECT_DIR$/Blacklist/FrontModule/presenters/BasePresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/FrontModule/presenters/HomepagePresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/FrontModule/presenters/CategoryPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/FrontModule/templates/Category/show.latte" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/AuthPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/menu.latte" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/login.latte" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/ArticlePresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/BasePresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/CategoryPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/CommentsPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/MenuPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/PagePresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/PanelPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/TaskPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/SettingsPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/presenters/UserPresenter.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/ArticleComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/CategoryComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/MenuComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PageComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/SettingsComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/TaskComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/UserComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PanelComponentFactory.php" />
+        <option value="$PROJECT_DIR$/Blacklist/FrontModule/templates/@layout.latte" />
       </list>
     </option>
   </component>
@@ -121,7 +407,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
+              <option name="myItemId" value="Blacklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Narwhal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Narwhal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Blacklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrontModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Narwhal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Narwhal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Blacklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrontModule" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -135,6 +461,19 @@
     <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -153,6 +492,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24248926" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -164,7 +504,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -194,19 +533,298 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/presenters/BasePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="5" selection-start="556" selection-end="556" vertical-scroll-proportion="0.5686275" vertical-offset="0" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Config/config.local.neon">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="14" selection-start="85" selection-end="89" vertical-scroll-proportion="0.12" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/models/IFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="802">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libs/composer/autoload_classmap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="89" selection-start="3101" selection-end="3101" vertical-scroll-proportion="0.5934959" vertical-offset="203" max-vertical-offset="4515">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/models/IControl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="1" selection-start="423" selection-end="423" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/models/Object.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/models/Settings/BasicSettingsControl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/models/Settings/SettingsAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="25" selection-start="632" selection-end="632" vertical-scroll-proportion="0.49871466" vertical-offset="32" max-vertical-offset="1245">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/presenters/BasePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="49" selection-start="1533" selection-end="1533" vertical-scroll-proportion="0.74509805" vertical-offset="210" max-vertical-offset="1230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/presenters/HomepagePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="57" selection-start="1796" selection-end="1796" vertical-scroll-proportion="0.27260637" vertical-offset="1160" max-vertical-offset="4980">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/templates/Category/show.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="20" selection-start="690" selection-end="690" vertical-scroll-proportion="0.2682927" vertical-offset="87" max-vertical-offset="825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/presenters/CategoryPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="57" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.84042555" vertical-offset="478" max-vertical-offset="1230">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/menu.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="1697" selection-end="1697" vertical-scroll-proportion="0.46989527" vertical-offset="511" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/templates/Auth/login.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="141" selection-start="4991" selection-end="4991" vertical-scroll-proportion="0.7643979" vertical-offset="346" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/WidgetPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="10" selection-start="196" selection-end="196" vertical-scroll-proportion="0.19148937" vertical-offset="6" max-vertical-offset="2805">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/ArticlePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="39" selection-start="48" selection-end="50" vertical-scroll-proportion="0.059840426" vertical-offset="0" max-vertical-offset="2460">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/AuthPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="65" selection-start="737" selection-end="739" vertical-scroll-proportion="-5.0" vertical-offset="230" max-vertical-offset="1170">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/BasePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="37" selection-start="585" selection-end="587" vertical-scroll-proportion="-5.0" vertical-offset="110" max-vertical-offset="915">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/CategoryPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="70" selection-start="2398" selection-end="2398" vertical-scroll-proportion="-8.66" vertical-offset="1322" max-vertical-offset="2100">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/CommentsPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="4" selection-start="356" selection-end="357" vertical-scroll-proportion="-5.0" vertical-offset="65" max-vertical-offset="1755">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/MenuPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="48" selection-start="2616" selection-end="2616" vertical-scroll-proportion="-12.86" vertical-offset="1322" max-vertical-offset="2100">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/ModulePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="7" selection-start="17" selection-end="18" vertical-scroll-proportion="-0.9" vertical-offset="0" max-vertical-offset="2100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/PagePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="7" selection-start="17" selection-end="18" vertical-scroll-proportion="-0.9" vertical-offset="0" max-vertical-offset="1680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/PanelPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="23" selection-start="1723" selection-end="1723" vertical-scroll-proportion="-9.4" vertical-offset="760" max-vertical-offset="1515">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/SettingsPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="38" selection-start="315" selection-end="317" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/TaskPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="25" selection-start="1985" selection-end="1987" vertical-scroll-proportion="-6.18" vertical-offset="1056" max-vertical-offset="1785">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/TranslatePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="7" selection-start="17" selection-end="18" vertical-scroll-proportion="0.059840426" vertical-offset="0" max-vertical-offset="11265">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/presenters/UserPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="25" selection-start="2147" selection-end="2149" vertical-scroll-proportion="0.84042555" vertical-offset="1018" max-vertical-offset="1770">
+          <folding>
+            <element signature="e#7#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Article/EditArticleForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1770">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/ArticleComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="186" column="5" selection-start="5720" selection-end="5720" vertical-scroll-proportion="0.85335195" vertical-offset="2179" max-vertical-offset="2895">
+          <folding>
+            <element signature="e#11#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/CategoryComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="5" selection-start="3831" selection-end="3831" vertical-scroll-proportion="0.87150836" vertical-offset="1371" max-vertical-offset="2100">
+          <folding>
+            <element signature="e#7#180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/MenuComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="39" selection-start="52" selection-end="54" vertical-scroll-proportion="0.061728396" vertical-offset="0" max-vertical-offset="2055">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PageComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="28" selection-start="3315" selection-end="3315" vertical-scroll-proportion="1.3653586" vertical-offset="731" max-vertical-offset="2490">
+          <folding>
+            <element signature="e#11#180#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/SettingsComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="5" selection-start="2869" selection-end="2869" vertical-scroll-proportion="0.8650386" vertical-offset="647" max-vertical-offset="1425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/TaskComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="148" column="5" selection-start="4503" selection-end="4503" vertical-scroll-proportion="0.86037236" vertical-offset="1573" max-vertical-offset="2325">
+          <folding>
+            <element signature="e#11#183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/PanelComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+          <folding>
+            <element signature="e#11#181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/AdminModule/components/Factory/UserComponentFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="115" selection-start="3248" selection-end="3248" vertical-scroll-proportion="2.3136246" vertical-offset="0" max-vertical-offset="4470">
+          <folding>
+            <element signature="e#7#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blacklist/FrontModule/templates/@layout.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="130" selection-start="3451" selection-end="3451" vertical-scroll-proportion="0.35602096" vertical-offset="748" max-vertical-offset="2580">
           <folding />
         </state>
       </provider>

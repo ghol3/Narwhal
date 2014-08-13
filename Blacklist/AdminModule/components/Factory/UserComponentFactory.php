@@ -104,7 +104,6 @@ class UserComponentFactory extends NObject
         }
         $user->setDatabase($this->database);
         $user->update();
-        $this->saveLog(STR_546 . ' ' . $user->account);
         $this->presenter->flashMessage(STR_92 . ' "' . $user->account . '" ' . STR_453, 'success');
         $this->presenter->redirect('this');
     }
@@ -131,9 +130,9 @@ class UserComponentFactory extends NObject
      */
     public function getNewUserForm()
     {
-	$form = new AddForm();
-	$form->onSuccess[] = $this->addNewUserSubmitted;
-	return $form;
+        $form = new AddForm();
+        $form->onSuccess[] = $this->addNewUserSubmitted;
+        return $form;
     }
     
     /**
@@ -142,20 +141,19 @@ class UserComponentFactory extends NObject
      */
     public function addNewUserSubmitted(AddForm $form)
     {
-	$data = $form->getValues();
+        $data = $form->getValues();
         $user = new \Blacklist\Object\UserObject($data->account, hash('sha512', $data->password), $data->email, $data->adminLevel);
-	$user->setDatabase($this->database);
+        $user->setDatabase($this->database);
         $user->create();
-	
-	$u = $this->users->getByAccount($data->account);
-	$info = new \Blacklist\Object\UserInfoObject($data->username, $data->surname, $data->birthday);
-	$info->facebook = $data->facebook;
-	$info->skype = $data->skype;
-	$info->user = $u->id;
+
+        $u = $this->users->getByAccount($data->account);
+        $info = new \Blacklist\Object\UserInfoObject($data->username, $data->surname, $data->birthday);
+        $info->facebook = $data->facebook;
+        $info->skype = $data->skype;
+        $info->user = $u->id;
         $info->setDatabase($this->database);
-	$info->create();
-        
-        $this->saveLog(STR_545. ' "' . $user->account . '"');
+        $info->create();
+
         
         $this->presenter->flashMessage(STR_92 .' "' . $user->account . '" ' . STR_451, 'success');
         $this->presenter->redirect('User:default');
@@ -222,8 +220,7 @@ class UserComponentFactory extends NObject
             $user->setExpiration('720 minutes', TRUE);
             $this->presenter->flashMessage(MSG_USER_LOGIN_SUCCESS);
             $u = $this->presenter->getSession('user');
-            
-            $this->saveLog(STR_544);
+
             if($data->remember){
                 $u->adminuser = $data->account;
             }else{
@@ -290,18 +287,7 @@ class UserComponentFactory extends NObject
      */
     public function __destruct()
     {
-	unset($this->database);
-	unset($this->users);
-    }
-    
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92. ' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
+        unset($this->database);
+        unset($this->users);
     }
 }

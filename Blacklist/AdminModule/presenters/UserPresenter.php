@@ -109,6 +109,5 @@ class UserPresenter extends BasePresenter
         $user = $this->users->getById($id);
         $user->remove();
         $this->flashMessage(STR_92 . ' "' . $user->account . '" ' . STR_435, 'success');
-        $this->saveLog(STR_505 . ' ' . $user->getUserInfo()->username . ' ' . $user->getUserInfo()->surname, $this->database);
     }
 }

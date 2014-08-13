@@ -90,7 +90,6 @@ class TaskPresenter extends BasePresenter
         $task = $factory->getById($id);
         $task->remove();
         $this->flashMessage(STR_507 .' "' . $task->name . '" ' . STR_435, 'success');
-        $this->saveLog(STR_506.' ' . $task->name, $this->database);
     }
     
     /**

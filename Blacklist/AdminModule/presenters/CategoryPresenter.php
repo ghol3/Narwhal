@@ -116,7 +116,6 @@ class CategoryPresenter extends BasePresenter
         $parent = (isset($_POST['parent']) ? $_POST['parent'] : array());
         
         $this->categories->updateAll($priority, $visibility, $parent);
-        $this->saveLog(STR_439, $this->database);
         $this->flashMessage(STR_440, 'success');
         $this->redirect('Category:default');
     }

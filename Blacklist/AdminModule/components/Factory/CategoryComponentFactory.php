@@ -101,7 +101,6 @@ class CategoryComponentFactory extends NObject
         $category->make($data);
         $category->setDatabase($this->database);
         $category->create();
-        $this->saveLog(STR_527 . ' ' . $category->name);
         $this->presenter->flashMessage(STR_14 .' "'. $category->name . '" ' . STR_528, 'success');
         $this->presenter->redirect('Category:default');
     }
@@ -122,9 +121,8 @@ class CategoryComponentFactory extends NObject
         $category->make($data);
         $category->setDatabase($this->database);
         $category->update();
-        $this->saveLog(STR_529 .' ' . $category->name);
         $this->presenter->flashMessage(STR_14 . ' <a target="_blank" href="/produkty/'.$category->link.'">"' . $category->name . '"</a> ' . STR_530, 'success');
-	$this->presenter->redirect('this');
+	    $this->presenter->redirect('this');
     }
     
     /**
@@ -132,17 +130,6 @@ class CategoryComponentFactory extends NObject
      */
     public function __destruct()
     {
-	unset($this->categories);
-    }
-    
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92 . ' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
+	    unset($this->categories);
     }
 }

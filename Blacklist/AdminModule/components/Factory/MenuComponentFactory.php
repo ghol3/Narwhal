@@ -102,9 +102,8 @@ class MenuComponentFactory extends NObject
         
         $menu->image = ($imageFactory->path . $imageFactory->name);
         $menu->create();
-        $this->saveLog(STR_531 . ' - ' . $menu->name);
         $this->presenter->flashMessage(STR_457 . ' ("' . $menu->name . '") ' . STR_528, 'success');
-	$this->presenter->redirect('Menu:default');
+	    $this->presenter->redirect('Menu:default');
     }
     
     /**
@@ -126,20 +125,8 @@ class MenuComponentFactory extends NObject
         $imageFactory->upload();
         $menu->image = ($imageFactory->path . $imageFactory->name);
         $menu->update();
-       
-        $this->saveLog(STR_532 . ' - ' . $menu->name);
+
         $this->presenter->flashMessage(STR_457.' ("' . $menu->name . '") '. STR_530, 'success');
-	$this->presenter->redirect('Menu:default');
-    }
-    
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92 . ' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
+	    $this->presenter->redirect('Menu:default');
     }
 }

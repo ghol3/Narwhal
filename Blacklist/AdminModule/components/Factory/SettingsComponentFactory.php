@@ -43,7 +43,7 @@ class SettingsComponentFactory extends \Nette\Object
      */
     public function __construct(Context $db, $presenter)
     {
-	$this->settings = new SettingsAction($db);
+	    $this->settings = new SettingsAction($db);
         $this->presenter    = $presenter;
         $this->database = $db;
     }
@@ -54,9 +54,9 @@ class SettingsComponentFactory extends \Nette\Object
      */
     public function getBasicSettingsForm()
     {
-	$form = new BasicSettingsForm($this->settings->getBasicSettings());
-	$form->onSuccess[] = $this->basicSettingsFormSubmitted;
-	return $form;
+        $form = new BasicSettingsForm($this->settings->getBasicSettings());
+        $form->onSuccess[] = $this->basicSettingsFormSubmitted;
+        return $form;
     }
     
     public function basicSettingsFormSubmitted(BasicSettingsForm $form)
@@ -82,7 +82,6 @@ class SettingsComponentFactory extends \Nette\Object
         $settings->keywords = $data->keywords;
         $settings->log_number = $data->log_number;
         $this->settings->updateBasicSettings($settings);
-        $this->saveLog(STR_540);
         $this->presenter->flashMessage(STR_541, 'success');
         $this->presenter->redirect('this');
     }
@@ -93,16 +92,5 @@ class SettingsComponentFactory extends \Nette\Object
     public function __destruct()
     {
         unset($this->settings);
-    }
-    
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92 .' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
     }
 }

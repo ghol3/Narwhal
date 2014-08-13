@@ -51,23 +51,9 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         $template->allarticles = $articleF->getAll();
         $widgetsF = new \Blacklist\Object\WidgetFactory($this->database);
         $template->widgets = $widgetsF->getAll();
-        $this->loadSessions($template);
         $template->activePage = $this->activePage;
     }
-    
-    /**
-     * 
-     * @param type $template
-     */
-    private function loadSessions($template)
-    {
-        $cart = $this->getSession('cart');
-        if(!method_exists($cart->cart, 'getProducts')){
-            $cart->cart = new \Blacklist\Object\Cart;
-        }
-        $template->cart = $cart->cart;
-    }
-    
+
     /**
      * 
      * @return type

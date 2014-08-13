@@ -1,4 +1,4 @@
-t<?php
+<?php
     
 /**
  * This is part of Blacklist CMS developed by Beepvix.
@@ -44,7 +44,7 @@ class PanelComponentFactory extends \Nette\Object
      */
     public function __construct(Context $db, $presenter)
     {
-	$this->panels = new PanelFactory($db);
+	    $this->panels = new PanelFactory($db);
         $this->presenter    = $presenter;
         $this->database = $db;
     }
@@ -55,9 +55,9 @@ class PanelComponentFactory extends \Nette\Object
      */
     public function getNewPanelForm()
     {
-	$form = new NewPanelForm();
-	$form->onSuccess[] = $this->newPanelFormSubmitted;
-	return $form;
+        $form = new NewPanelForm();
+        $form->onSuccess[] = $this->newPanelFormSubmitted;
+        return $form;
     }
     
     /**
@@ -67,9 +67,9 @@ class PanelComponentFactory extends \Nette\Object
      */
     public function getEditPanelForm($id)
     {
-	$form = new EditPanelForm($this->panels->getById($id));
-	$form->onSuccess[] = $this->editPanelFormSubmitted;
-	return $form;
+        $form = new EditPanelForm($this->panels->getById($id));
+        $form->onSuccess[] = $this->editPanelFormSubmitted;
+        return $form;
     }
     
     /**
@@ -82,9 +82,8 @@ class PanelComponentFactory extends \Nette\Object
         $object->make($form->getValues());
         $object->setDatabase($this->database);
         $object->create();
-        $this->saveLog(STR_536 . ' "' . $object->name . '"');
-	$this->presenter->flashMessage(STR_500 . ' "' . $object->name . '" ' . STR_451, 'success');
-	$this->presenter->redirect('Panel:default');
+        $this->presenter->flashMessage(STR_500 . ' "' . $object->name . '" ' . STR_451, 'success');
+        $this->presenter->redirect('Panel:default');
     }
     
     /**
@@ -98,9 +97,8 @@ class PanelComponentFactory extends \Nette\Object
         $object->setDatabase($this->database);
         $object->visibility = ($object->visibility) ? 1 : 0;
         $object->update();
-        $this->saveLog(STR_537 . ' "' .$object->name . '"');
-	$this->presenter->flashMessage(STR_500 . ' "' . $object->name . '" ' . STR_451, 'success');
-	$this->presenter->redirect('Panel:edit', $object->id);
+	    $this->presenter->flashMessage(STR_500 . ' "' . $object->name . '" ' . STR_451, 'success');
+	    $this->presenter->redirect('Panel:edit', $object->id);
     }
         
     /**
@@ -109,20 +107,5 @@ class PanelComponentFactory extends \Nette\Object
     public function __destruct()
     {
         unset($this->panels);
-    }
-    
-    /**
-     * 
-     * @param type $action
-     */
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92 . ' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
     }
 }

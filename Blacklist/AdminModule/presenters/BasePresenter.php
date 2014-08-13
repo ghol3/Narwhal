@@ -42,7 +42,6 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
     {
         $userF = new \Blacklist\Factory\UserFactory($db);
         $this->template->user = $userF->getById($this->getUser()->id);
-        $this->template->newCount = count($db->table(\Blacklist\Model\String\TableString::ORDERS)->where('status', 'new'));
     }
     
     /**
@@ -50,24 +49,8 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
      */
     public function handleLogout()
     {
-	$this->user->logout();
-	$this->flashMessage(STR_438);
-	$this->redirect('this');
-    }
-    
-    /**
-     * 
-     * @param type $user
-     * @param type $action
-     */
-    protected function saveLog($action, $database)
-    {
-        $log = new \Blacklist\Object\LogObject();
-        $uf = new \Blacklist\Factory\UserFactory($database);
-        $u = $uf->getById($this->getUser()->id);
-        $log->setDatabase($database);
-        $log->user = $u->id;
-        $log->action = 'Uživatel ' . $u->getUserInfo()->username . ' ' . $u->getUserInfo()->surname . ' ' . $action;
-        $log->create();
+        $this->user->logout();
+        $this->flashMessage(STR_438);
+        $this->redirect('this');
     }
 }

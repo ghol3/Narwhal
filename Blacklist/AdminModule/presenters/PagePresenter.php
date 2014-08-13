@@ -103,6 +103,5 @@ class PagePresenter extends BasePresenter
     {
 	$page = $this->pages->getById($id);
         $page->remove();
-        $this->saveLog(STR_499. ' ' . $page->title, $this->database);
     }
 }

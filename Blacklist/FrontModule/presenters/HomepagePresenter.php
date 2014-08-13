@@ -88,12 +88,9 @@ class HomepagePresenter extends BasePresenter
         $this->defaultInit($this->database, $this->template);
         
         $articles = new \Blacklist\Factory\ArticleFactory($this->database);
-        $productFactory = new \Blacklist\Factory\ProductFactory($this->database);
         
         $this->template->articles = $articles->getAll(3);
-        //$this->template->articles = $articles->getAllOffset($paginator->getLength(), $paginator->getOffset(), 'category != 11');
         $this->template->mainArticle = $articles->getByCategory(11);
-        $this->template->products = $productFactory->getAll(3);
         
         $mylatte = new \Latte\Engine;
         $mylatte->setLoader(new \Latte\Loaders\StringLoader);

@@ -95,7 +95,6 @@ class TaskComponentFactory extends NObject
         $taskObject->done = $this->presenter->getUser()->id;
         $taskObject->setDatabase($this->database);
         $taskObject->update();
-        $this->saveLog(STR_542. ' ' . $taskObject->name);
         $this->presenter->flashMessage(STR_507 . ' "' . $data->name . '" ' . STR_523, 'success');
         $this->presenter->redirect('Task:default');
     }
@@ -136,8 +135,7 @@ class TaskComponentFactory extends NObject
             $mailer = new \Nette\Mail\SendmailMailer;
             $mailer->send($mail);
         }
-        
-        $this->saveLog(STR_543 . ' ' . $taskObject->name);
+
         $this->presenter->flashMessage(STR_507 . ' "' . $taskObject->name . '" '.STR_451, 'success');
         $this->presenter->redirect('Task:default');
     }
@@ -148,16 +146,5 @@ class TaskComponentFactory extends NObject
     public function __destruct()
     {
 
-    }
-    
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92. ' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
     }
 }

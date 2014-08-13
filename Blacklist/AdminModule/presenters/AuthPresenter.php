@@ -19,8 +19,8 @@ class AuthPresenter extends BasePresenter
 {
     
     private $component = NULL;
-    private $settings;
-    private $database;
+    private $settings  = NULL;
+    private $database  = NULL;
     
     /**
      * 
@@ -28,8 +28,8 @@ class AuthPresenter extends BasePresenter
      */
     public function __construct(Context $db)
     {
-	parent::__construct();
-	$this->component = new uFactory($db, $this);
+	    parent::__construct();
+	    $this->component = new uFactory($db, $this);
         $this->settings = new \Blacklist\Model\Settings\SettingsAction($db);
         $this->database = $db;
     }
@@ -68,6 +68,6 @@ class AuthPresenter extends BasePresenter
      */
     protected function createComponentAdminLoginForm()
     {
-	return $this->component->getAdminLoginForm();
+	    return $this->component->getAdminLoginForm();
     }
 }

@@ -133,7 +133,6 @@ class ArticleComponentFactory extends NObject
             $tag->setDatabase($this->database);
             $tag->create();
         }
-        $this->saveLog(STR_525 . ' ' . $article->title);
         $this->presenter->flashMessage(STR_434 . ' "' . $article->title . '" '. STR_451, 'success');
         $this->presenter->redirect('Article:default');
     }
@@ -174,7 +173,6 @@ class ArticleComponentFactory extends NObject
             $tag->setDatabase($this->database);
             $tag->create();
         }
-        $this->saveLog(STR_526 .' ' . $article->title);
         $this->presenter->flashMessage(STR_434 . ' <a target="_blank" href="/informacie-o-antiradaroch/'. $article->link . '">"' . $article->title . '"</a> '. STR_523, 'success');
         $this->presenter->redirect('this');
     }
@@ -184,18 +182,7 @@ class ArticleComponentFactory extends NObject
      */
     public function __destruct()
     {
-	unset($this->articles);
-	unset($this->categories);
-    }
-    
-    private function saveLog($action)
-    {
-        $object = new \Blacklist\Object\LogObject();
-        $object->setDatabase($this->database);
-        $object->user = $this->presenter->getUser()->id;
-        $usef = new \Blacklist\Factory\UserFactory($this->database);
-        $info = $usef->getById($object->user)->getUserInfo();
-        $object->action = STR_92 .' ' . $info->username . ' ' . $info->surname . ' ' . $action;
-        $object->create();
+        unset($this->articles);
+        unset($this->categories);
     }
 }

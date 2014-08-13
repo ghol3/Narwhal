@@ -141,7 +141,6 @@ class ArticlePresenter extends BasePresenter
     public function renderUpdateAll()
     {   
         $this->fArticle->updateAll($_POST['position']);
-        $this->saveLog(STR_432, $this->database);
         $this->flashMessage(STR_433, 'success');
         $this->redirect('Article:default');
     }
@@ -155,7 +154,6 @@ class ArticlePresenter extends BasePresenter
         $article = $this->fArticle->getById($id);
         $article->remove();
         $this->flashMessage(STR_434 . ' "' . $article->title . '" ' . STR_435, 'success');
-        $this->saveLog(STR_435 . ' ' . $article->title, $this->database);
         $this->redirect('Article:default');
     }
 }

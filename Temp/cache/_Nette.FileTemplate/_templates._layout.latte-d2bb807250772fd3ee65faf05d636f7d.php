@@ -1,50 +1,30 @@
-<?php //netteCache[01]000405a:2:{s:4:"time";s:21:"0.60405100 1407959907";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:91:"/Applications/XAMPP/xamppfiles/htdocs/Narwhal/Blacklist/FrontModule/templates/@layout.latte";i:2;i:1407772036;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2014-03-17";}}}?><?php
+<?php //netteCache[01]000405a:2:{s:4:"time";s:21:"0.08283500 1407965044";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:91:"/Applications/XAMPP/xamppfiles/htdocs/Narwhal/Blacklist/FrontModule/templates/@layout.latte";i:2;i:1407965042;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2014-03-17";}}}?><?php
 
 // source file: /Applications/XAMPP/xamppfiles/htdocs/Narwhal/Blacklist/FrontModule/templates/@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'w5njsssgdq')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '2t3a40zvgv')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbae655e9d0f_head')) { function _lbae655e9d0f_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lbb38bb0e8bd_head')) { function _lbb38bb0e8bd_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lba2cdff2a49_title')) { function _lba2cdff2a49_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lbc3c1a66a0a_title')) { function _lbc3c1a66a0a_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
-}}
-
-//
-// block _cart
-//
-if (!function_exists($_l->blocks['_cart'][] = '_lbe4e92b9848__cart')) { function _lbe4e92b9848__cart($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('cart', FALSE)
-?>            <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
-                <div class="topmenu">
-                    <?php $countp = count($cart->getProducts())?>
-                    <span class="topbar-cart"><span class="fa fa-shopping-cart clr"></span> <a href="<?php echo htmlSpecialChars($_control->link("Homepage:cart")) ?>
-"><?php echo Nette\Templating\Helpers::escapeHtml($countp, ENT_NOQUOTES) ?> <?php if ($countp == 0) { ?>
- produktov <?php } elseif ($countp == 1) { ?> produkt <?php } elseif ($countp == 2 || $countp == 3) { ?>
- produty <?php } else { ?> produktov<?php } ?> - <?php echo Nette\Templating\Helpers::escapeHtml($template->number($cart->getTotalPrice(true), 2), ENT_NOQUOTES) ?> €</a></span>
-                </div><!-- end top menu -->
-            	<div class="callus">
-                    <span class="topbar-email"><span class="fa fa-envelope clr"></span> <a href="mailto:name@yoursite.com"><?php echo Nette\Templating\Helpers::escapeHtml($settings->site_email, ENT_NOQUOTES) ?></a></span>
-                    <span class="topbar-phone"><span class="fa fa-phone clr"></span> <?php echo Nette\Templating\Helpers::escapeHtml($settings->phone, ENT_NOQUOTES) ?></span>
-                </div><!-- end callus -->
-            </div><!-- end columns -->
-<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb725ed5241b_content')) { function _lb725ed5241b_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lb69ce04e8f0_content')) { function _lb69ce04e8f0_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
@@ -120,8 +100,13 @@ $(function () {
                     <span class="topbar-email"><?php echo Nette\Templating\Helpers::escapeHtml($settings->sitename, ENT_NOQUOTES) ?></span>
                 </div><!-- end social icons -->
             </div><!-- end columns -->
-<div id="<?php echo $_control->getSnippetId('cart') ?>"><?php call_user_func(reset($_l->blocks['_cart']), $_l, $template->getParameters()) ?>
-</div>        </div><!-- end container -->
+            <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+            	<div class="callus">
+                    <span class="topbar-email"><span class="fa fa-envelope clr"></span> <a href="mailto:name@yoursite.com"><?php echo Nette\Templating\Helpers::escapeHtml($settings->site_email, ENT_NOQUOTES) ?></a></span>
+                    <span class="topbar-phone"><span class="fa fa-phone clr"></span> <?php echo Nette\Templating\Helpers::escapeHtml($settings->phone, ENT_NOQUOTES) ?></span>
+                </div><!-- end callus -->
+            </div><!-- end columns -->
+        </div><!-- end container -->
     </div>
     
     <header id="header-style-1" class="header-fix">
@@ -134,7 +119,7 @@ $(function () {
                         <span class="icon-bar"></span>
                     </button>
                     <a href="<?php echo htmlSpecialChars($_control->link("Homepage:default")) ?>
-"><img src="<?php echo htmlSpecialChars(Nette\Templating\Helpers::safeUrl($basePath)) ?>/images/frontend/logo/logo.png" width="280" class="hd-100p" alt="logo"></a>
+"><img src="<?php echo htmlSpecialChars(Nette\Templating\Helpers::safeUrl($basePath)) ?>/images/frontend/logo/logo.jpg" width="280" height="50" alt="logo"></a>
         	</div><!-- end navbar-header -->
                 
 		<div id="navbar-collapse-1" class="navbar-collapse collapse navbar-right">
