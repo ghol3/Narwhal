@@ -1,0 +1,232 @@
+{block title}<?php print(STR_97); ?> {$order->code} (ID={$order->id}){/block}
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+{/block}
+
+{block content}
+<div class="heading"><?php print(STR_97); ?> {$order->code} &nbsp;&raquo;&nbsp; <?php print(STR_98); ?></div><script type="text/javascript">if(top.frames.length>0){
+    top.topframe.document.getElementById("admin_note").innerHTML='Makat se prostÏ musi :-)';}</script><div class="btns"><a href="{link Order:edit $order->id}"><strong><?php print(STR_99); ?> - <?php print(STR_97); ?></strong></a></div><style>
+.sHint{
+    -moz-user-focus:ignore;-moz-user-select:none;position:absolute;width:100%;display:none;font-family:tahoma;font-size:11px;}
+.sHint UL{
+    border:1px solid #666;border-bottom:2px solid #444;border-right:2px solid #444;margin:0;padding:0;background:#fff;}
+.sHint LI{
+    padding:4px 4px;list-style:none;}
+.sHint LI.current{
+    background:#d5e2ff;}
+.sHint B{
+    color:#a33600;font-weight:normal;float:right;}
+.sHint EM{
+    font-style:normal;background:#ffff55;}
+
+.sHint .sid{
+    float:left;width:80px;border-right:1px solid #aaa;margin-right:8px;}
+
+.inpload{
+    background:url(img/ajax.gif) 100% 50% no-repeat;}
+</style>
+<script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="hint.js"></script>
+
+
+
+
+<style>
+#ab2 A,
+#ab A{
+    color:blue;text-decoration:none;border-bottom:1px dotted;margin-right:12px;display:block;float:left}
+#ab2 A:hover,
+#ab A:hover{
+    text-decoration:none;}
+
+.noborder{
+    border-left:0;border-top:0;border-bottom:0;background:transparent}
+INPUT{
+    width:250px}
+
+.btns{
+    clear:both;width:100%;overflow:hidden;font-size:11px;padding:0 0 10px 0;font-family:arial}
+.btns A{
+    display:block;border-style:solid;border-width:1px;border-color:#bbb #555 #555 #bbb;color:#111;
+text-decoration:none;padding:5px;float:left;margin-right:5px;background:url(img/back.gif) 5px 4px no-repeat #eee;padding-left:27px}
+.btns A:hover{
+    color:blue;text-decoration:underline}
+</style>
+
+<div style="width:550px;">
+<form id="formdata" n:name="editForm">
+    <div style="text-align:right">
+<input type="submit" n:name="send" style="font-weight:bold;font-size:13px;color:#005400;padding:2px;width:130px;" value="<?php print(STR_100); ?>">
+</div>
+    <div class="tblView">
+        <table cellspacing="0">
+            <tr>
+                <th style="width:150px;"><?php print(STR_54); ?></th>
+                <td style="color:#cc0000;letter-spacing:1px">
+                    <strong>{$order->code}</strong>
+                </td>
+            </tr>
+            <tr>
+                <th><?php print(STR_101); ?></th>
+                <td><input n:name="installments"></td>
+            </tr>
+            <tr>
+                <th><?php print(STR_90); ?></th>
+                <td><input n:name="createDate"></td>
+            </tr>
+            <tr>
+                <th>Stát</th>
+                <td><input n:name="state"></td>
+            </tr>
+        </table>
+    </div>
+    <h6><?php print(STR_102); ?></h6>
+    <div class="tblView">
+        <table cellspacing="0">
+            <tr>
+                <th style="width:150px"><?php print(STR_25); ?></th>
+                <td>
+                    <input n:name="username">
+                </td>
+            </tr>
+            <tr>
+                <th style="width:150px"><?php print(STR_103); ?></th>
+                <td>
+                    <input n:name="surname">
+                </td>
+            </tr>
+            <tr>
+                <th><?php print(STR_57); ?></th>
+                <td><input n:name="address"></td>
+            </tr>
+            <tr>
+                <th><?php print(STR_58); ?></th>
+                <td><input n:name="city"></td>
+            </tr>
+            <tr>
+                <th><?php print(STR_59); ?></th>
+                <td><input n:name="zip"></td>
+            </tr>
+            <tr>
+                <th><?php print(STR_35); ?></th>
+                <td><input n:name="country"></td>
+            </tr>
+        </table>
+    </div>
+
+<script type="text/javascript">
+sHint.init('jmeno', 'edit_order_ajax.php?s=', function(o){
+	var id=o.id.substring(3);
+	get('edit_order_ajax.php?id='+id, function(s){
+		var d=s.split('~~');
+		var o=$('formdata');
+		o.a_jmeno.value=d[0];
+		o.a_ulice.value=d[1];
+		o.a_mesto.value=d[2];
+		o.a_psc.value=d[3];
+		o.b_firma.value=d[4];
+		o.ico.value=d[5];
+		o.dic.value=d[6];
+		o.b_ulice.value=d[7];
+		o.b_mesto.value=d[8];
+		o.b_psc.value=d[9];
+		o.email.value=d[10];
+		o.telefon.value=d[11];
+		selectByValue('provize', d[12]);
+		onProvize($('provize'));
+	});
+});
+
+function onProvize(o){
+	$('thprovize').className = o.value ? 'provizeIco' : '';
+}
+</script>
+
+
+<h6><?php print(STR_104); ?></h6>
+<div class="tblView">
+    <table cellspacing="0">
+        <tr>
+            <th style="width:150px"><?php print(STR_105); ?></th>
+            <td><input n:name="firm"></td>
+        </tr>
+        <tr>
+            <th>IČO</th>
+            <td><input n:name="ico"></td>
+        </tr>
+        <tr>
+            <th>DIČ</th>
+            <td><input n:name="dic"></td>
+        </tr>
+        <tr>
+            <th><?php print(STR_57); ?></th>
+            <td><input n:name="firm_address"></td>
+        </tr>
+        <tr>
+            <th><?php print(STR_58); ?></th>
+            <td><input n:name="firm_city"></td>
+        </tr>
+        <tr>
+            <th><?php print(STR_59); ?></th>
+            <td><input n:name="firm_zip"></td>
+        </tr>
+    </table>
+</div>
+
+<h6><?php print(STR_106); ?></h6>
+<div class="tblView">
+    <table cellspacing="0">
+        <tr>
+            <th id="thprovize"><?php print(STR_107); ?></th>
+            <td><select n:name="commission"></select></td>
+        </tr>
+        <tr>
+            <th><?php print(STR_63); ?></th>
+            <td><input n:name="email"></td>
+        </tr>
+        <tr>
+            <th><?php print(STR_66); ?></th>
+            <td><input n:name="phone"></td>
+        </tr>
+        <tr>
+            <th style="width:150px"><?php print(STR_108); ?></th>
+            <td><textarea rows="2" cols="50" n:name="note"></textarea></td>
+        </tr>
+        <tr>
+            <th><?php print(STR_67); ?></th>
+            <td style="padding:6px;background:#ffffcc">
+<script type="text/javascript">
+function doprava(b,a){
+	document.getElementById('doa').value=a;
+	document.getElementById('dob').value=b;
+}
+</script>
+<style>
+#ab A{
+    color:blue;text-decoration:none;border-bottom:1px dotted;margin-right:12px;display:block;float:left}
+#ab A:hover{
+    text-decoration:none;}
+</style>
+<div id="ab" style="float:left">
+<a href="javascript:void(0)" onclick="doprava({$eshopSettings->ppl_expres_price},'PPL Express')">PPL Express</a><a href="javascript:void(0)" onclick="doprava({$eshopSettings->messenger_price},'Messenger (Praha)')">Messenger (Praha)</a><a href="javascript:void(0)" onclick="doprava(0,'Osobní převzetí')">Osobní převzetí</a><a href="javascript:void(0)" onclick="doprava(0,'')">ZDARMA</a>
+</div>
+
+<div style="padding:7px 0 2px 0;width:100%;overflow:hidden;float:left;">
+    <input n:name="deliveryType" id="doa" style="width:170px;"/>
+za
+<input n:name="deliveryPrice" id="dob" style="width:50px;"/> € včetně DPH
+</td>
+</tr>
+</div>
+
+<tr><th><?php print(STR_68); ?></th>
+<td>
+    <select n:name="payment"></select>
+</td>
+</tr>
+        </form>
+</div>
+
+</div>
+</table>
+{/block}

@@ -1,0 +1,89 @@
+dubi 3,europe|49.1081583,14.0123037
+valasske mezirici,europe|49.4717598,17.9715538
+lanskroun,europe|49.9119738,16.6116277
+karolinka,europe|49.3504257,18.2465096
+brno,europe|49.1909804,16.6115347
+praha 10,europe|50.0668369,14.4607636
+nebovidy,europe|49.1420934,16.5541257
+svitavy,europe|49.7559562,16.4694603
+slavicin,europe|49.0885056,17.8756446
+zvolen ,europe|48.5758623,19.1256291
+dunajska streda,europe|47.9923894,17.6170548
+praha 3,europe|50.0842668,14.4692873
+plzen,europe|49.7474848,13.3776036
+Usti nad labem,europe|50.6610266,14.0329968
+olomouc,europe|49.5953879,17.2518721
+hradec kralove ,europe|50.2094261,15.8326259
+brno - vinohrady,europe|49.2064453,16.6633981
+trebiSov,europe|48.6296066,21.7197396
+ostrava,europe|49.8412715,18.2902483
+preSov,europe|49.0016751,21.2400295
+praha 9,europe|50.1134055,14.5014647
+dalovice,europe|50.2497455,12.8951111
+ostrava - belsky les,europe|49.7801364,18.2495718
+karlovy vary,europe|50.2322052,12.8712765
+chomutov,europe|50.4605452,13.4181515
+ostrava-moravska ostrava,europe|49.8346338,18.2820504
+praha 6,europe|50.1049975,14.4433575
+tabor,europe|49.4141617,14.6577921
+praha 5,europe|50.0721685,14.3977724
+nymburk,europe|50.1861000,15.0415603
+ostrava martinov,europe|49.8565141,18.1793640
+novy jicin ,europe|49.5953794,18.0101377
+klecany,europe|50.1773529,14.4104366
+uhlirske janovice,europe|49.8806801,15.0647306
+litvInov iii ,europe|50.5984848,13.5960321
+nova paka,europe|50.4945476,15.5160731
+Ceske budejovice,europe|48.9739084,14.4750235
+ostrava - moravska ostrava,europe|49.8346338,18.2820504
+chodov,europe|50.2398989,12.7477034
+ostrava 9,europe|49.8412715,18.2902483
+karvina - hranice,europe|49.8697222,18.5575000
+praha 9 - kolodeje,europe|50.0603337,14.6405826
+pohorelice,europe|48.9808659,16.5220866
+praha 4 - kunratice,europe|50.0134082,14.4830969
+sudovo hlavno,europe|50.2631302,14.6864614
+sumperk,europe|49.9654901,16.9700535
+praha 4,europe|49.9617023,14.3782106
+trebic,europe|49.2158467,15.8799192
+liberec 4,europe|50.7670199,15.0561346
+zlin,europe|49.2268877,17.6689027
+most,europe|50.5028647,13.6398163
+Ceperka,europe|50.1321213,15.7713074
+C.budejovice,europe|48.9739084,14.4750235
+praha 8,europe|50.1648528,14.4700633
+hradec kralove,europe|50.2094261,15.8326259
+vysokA pec,europe|50.5229874,13.4706907
+presov,europe|49.0016751,21.2400295
+jablonec nad nisou,europe|50.7249076,15.1693976
+praha 7,europe|50.1048466,14.2940307
+pardubice,europe|50.0378281,15.7808335
+varnsdorf,europe|50.9112438,14.6197005
+praha 5, mala strana,europe|50.0880556,14.4038889
+frydek-mistek,europe|49.6852722,18.3480339
+brno - ivanovice,europe|49.2640428,16.5656958
+opava - komarov,europe|49.9139715,17.9677706
+libice nad cidlinou,europe|50.1258217,15.1790626
+boskovice,europe|49.4885521,16.6587639
+praha - suchdol,europe|50.1331570,14.3768081
+rankweil - austria,europe|47.2706900,9.6428700
+marupes novads, marupe - latvia,europe|56.9068149,24.0586966
+ostrava - vitkovice,europe|49.8144525,18.2672888
+zvolen,europe|48.5758623,19.1256291
+novy jicin,europe|49.5953794,18.0101377
+litvInov iii,europe|50.5984848,13.5960321
+praha 10 – strasnice,europe|50.0658333,14.5080556
+praha 6 – Repy,europe|50.0645812,14.3080023
+praha 9 – bechovice,europe|50.0810463,14.6148686
+zlin4,europe|0,0
+zlin 4,europe|49.2268877,17.6689027
+Cesky tesin,europe|49.7442317,18.6232963
+ostrava-hrabova,europe|49.7745751,18.2815082
+Cernosice,europe|49.9595401,14.3228055
+bardejov,europe|49.2946849,21.2764409
+pruhonice,europe|50.0017145,14.5603064
+zlin 76001,europe|49.2176397,17.6970599
+bily kostel nad nisou chrastava,europe|50.8231462,14.9244072
+zlin – louky,europe|49.4217862,17.7210310
+zagreb - croatia,europe|45.8130293,15.9778949
+szeged,europe|46.2530102,20.1414253

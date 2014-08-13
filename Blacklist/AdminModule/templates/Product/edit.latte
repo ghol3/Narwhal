@@ -1,0 +1,475 @@
+č{block content}
+    <div class="heading"><?php print(STR_190); ?> - {$product->name}</div>
+<form n:name="editForm" >
+    <input n:name="id"/>
+<div style="float:right"><input type="submit" style="font-weight:bold;color:#005400;font-size:16px" value="Uložit změny"></div>
+
+<div class="btns" style="margin-bottom:12px;clear:none;float:left;width:auto"><a href="{link Product:default}"><strong><?php print(STR_99); ?> - <?php print(STR_173); ?></strong></a></div>
+<div class="btns" style="margin-bottom:12px;clear:none;float:left;width:auto;align:left;"></div>
+
+<script type="text/javascript">
+    var mybol = false;        
+    $(document).ready(function(){
+                $("#nazev").keyup(function(){
+                    if($("#url").val() === '' || mybol === true){
+                    $("#url").val(make_url($(this).val()));
+                }
+                });
+            });
+        </script>
+<div style="clear:both;font-size:0;height:0"></div>
+{if $product->image != ''}
+<div style="float:right"><img id="previewthumb" src="{$basePath}/{$product->image}" width="250"/></div>
+{/if}
+<div id="baseform" class="t twbg" style="width:430px">
+<p><span><?php print(STR_176); ?>:</span>
+    <select n:name='category'>
+    </select>
+<script type="text/javascript">
+
+function dropdown(id){
+	var o=$(id);
+	var t=$('dd2x');
+	var xy=[t.offsetLeft+t.offsetParent.offsetLeft, t.offsetTop+t.offsetParent.offsetTop+t.offsetParent.offsetTop];
+	if(o.style.display=='block') return ddhide(id);
+	o.style.left=xy[0]+10+'px';
+	o.style.top=xy[1]+t.offsetHeight+'px';
+	t.className='dropdown dropdown1';
+	o.style.display='block';
+	return false;
+}
+function ddcheck(id,on){
+	var o=$(id), i;
+	var oo=o.getElementsByTagName('INPUT');
+	for(i=0;i<oo.length;i++){
+		if(oo[i].type=='checkbox'){
+			oo[i].checked=on;
+		}
+	}
+	return false;
+}
+
+document.body.onmousedown=function(e){
+	if(!e) e=window.event;
+	var t=e.target || e.srcElement;
+	var p=getParent(t, 'DIV', 'dropdown2');
+	if(p || t.className=='dropdown dropdown1' || t.className=='dropdown') return true;
+	ddhide('dd2');
+}
+function ddhide(id){
+	var o=$(id);
+	var t=$(id+'x');
+	var s='';
+	var all=1;
+	var oo=o.getElementsByTagName('DIV');
+	for(i=1;i<oo.length;i++){
+		var ch=oo[i].getElementsByTagName('INPUT')[0];
+		var lbl=oo[i].getElementsByTagName('LABEL')[0];
+
+		if(ch.checked) s+=(s?', ':'')+lbl.innerHTML;
+		else all=0;
+	}
+
+	t.innerHTML=all ? 'vöechny' : (s ? s : '&ndash; vyber kategorii &ndash;');
+
+	o.style.display='none';
+	t.className='dropdown';
+	return false;
+}
+ddhide('dd2'); // default
+
+
+function hpouzit(i)
+{
+	var o=$('apouzit');
+	if(o){
+		isDisabled=i?0:1;
+		o.style.color=i?'#cc0000':'#666';
+	}
+}
+</script>
+</p>
+
+
+<!--
+<select id="kategorie" idkat="0" onchange="this.idkat=this.value" name="idkat" style="vertical-align:middle">
+</select> -->
+
+
+<p><span><?php print(STR_166); ?>:</span><input id="nazev" class="txt_name" type="text" n:name="name"  style="width:310px"></p>
+<p><span><?php print(STR_177); ?>:</span><div style="display:inline;position:relative;top:-1px;margin-right:5px;color:#444">{$settings->siteurl}/</div><input
+ type="text" n:name="link" id="url" style="width:196px;color:darkblue"></p>
+<p><span><?php print(STR_179); ?>:</span><input id="title" type="text" n:name="code" style="width:310px"></p>
+<p><span><?php print(STR_178); ?>:</span><input id="title" n:name="score" style="width:310px"></p>
+<p><span><?php print(STR_185); ?>:</span><input n:name='visibility'/></p>
+</div>
+
+<!-- ####################################################### -->
+
+<div id="baseform" class="t twbg">
+<p><span><?php print(STR_283); ?>:</span><div style="display:inline;position:relative;top:-1px;margin-right:5px;color:#444"></div><input n:name="image" style="width:182px;color:darkblue" id="obrazek" /></p>
+
+<p><span><?php print(STR_181); ?>:</span><input type="text" n:name="warranty" style="width:264px;margin-right:3px">
+</p>
+<p><span><?php print(STR_182); ?>:</span><input n:name="stock" style="width:264px;margin-right:3px">
+</p>
+<p><span><?php print(STR_167); ?>:</span><input  n:name="pricedph" style="width:264px;margin-right:3px"> €
+</p>
+<p><span><?php print(STR_172); ?>:</span><input n:name="company" style="width:264px;margin-right:3px"></p>
+<!--<p><span style="width:150px;">Parametry (překlad):</span><input n:name="tparams" style="width:214px;"/></p>
+<p><span style="width:150px;">Detaily (překlad):</span><input n:name="tdetails" style="width:214px;"/></p>
+<p><span style="width:150px;">Základní (překlad):</span><input n:name="tbasic" style="width:214px;"/></p>-->
+</div>
+
+<!-- ####################################################### -->
+
+<div style="clear:both"></div>
+<div id="hdivblock" class="hdivw">
+{snippet ptabs}
+<div class="hmenu">
+    <a href="javascript:void(0)" id="hmm0" onclick="hmenu(0)"><?php print(STR_184); ?></a>
+    <a href="javascript:void(0)" id="hmm4" onclick="hmenu(4)"><?php print(STR_186); ?></a>
+    <a href="javascript:void(0)" id="hmm5" onclick="hmenu(5)"><?php print(STR_187); ?></a>
+    <a href="javascript:void(0)" id="hmm6" onclick="hmenu(6)"><?php print(STR_188); ?></a>
+    
+    <?php $as = 8; ?>
+    {foreach $product->getTabs() as $tab}
+        <a href="javascript:void(0)" id="hmm{$as}" onclick="hmenu({$as})">{$tab->name}</a>
+        <?php $as++; ?>
+    {/foreach}
+    
+    <a href="javascript:void(0)" id="hmm40" onclick="hmenu(40)"><?php print(STR_189); ?></a>
+</div>
+    {/snippet}
+
+<div id="hdivarea" class="hdiv">
+
+
+<!-- ############################### -->
+
+<div class="hdivin" id="hm0" style="display:block;">
+<table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+<tr>
+<td style="line-height:120%;padding-bottom:7px">
+<div style="color:red;margin-top:5px;padding-left:10px;font-family:courier new;font-size:12px">
+<!-- popis -->
+</div>
+</td>
+</tr>
+<tr>
+<td style="height:100%"><textarea n:name="description" style="height:400px"></textarea></td>
+</tr>
+</table>
+</div>
+
+<!-- ############################### -->
+
+<!-------------------------------------------------------------------- FOTKY -->
+
+
+
+<!-- ############################### -->
+
+<div class="hdivin"  id="hm3">
+<table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+<tr><td><textarea n:name="params" style="height:400px"></textarea></td></tr>
+</table>
+</div>
+
+<!-- ############################### -->
+</form>
+ 
+ <div class="hdivin"  id="hm2">
+<table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+<tr><td><textarea n:name="detail" style="height:400px"></textarea></td></tr>
+</table>
+</div>
+ 
+<div class="hdivin" id="hm4" style="overflow:auto;">
+
+<div id="product-images">
+    <form n:name="addImage">
+        <input n:name="picture"/> <input n:name="send"/>
+    </form>
+</div>
+<!-- NOVY -->
+<div id="thumbs">
+    {snippet images}
+    {foreach $product->getImages() as $img}
+	<div class="mythumb" id="{$img->id}">
+	<input type="text"  value="{$img->image}" /><br />
+	<a href="{$basePath}/{$img->image}" target="_blank" class="mythumbimg">
+	<img src="{$basePath}/{$img->image}" width="100%"/></a><br />
+	<a href="#nahledovy" onclick="return imgSetPreview(this)" class="mythumbpreview"><?php print(STR_420); ?></a>
+        <a n:href="removeImage! $img->id, $product->id" class="ajax mythumbdel"><?php print(STR_421); ?></a>
+    </div>
+    {/foreach}
+    {/snippet}
+</div>
+
+<script type="text/javascript" src="http://www.antiradary.net/.admin/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="http://www.antiradary.net/.admin/swfupload/my_swfupload.js"></script>
+<link href="http://www.antiradary.net/.admin/swfupload/my_swfupload.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://www.antiradary.net/.admin/swfupload/my_drag.js"></script>
+<script type="text/javascript">
+var SID='mi12539t2vifn1u9r906cmqa77', ROOT='http://www.antiradary.net/.admin/', GET='?id=65';
+var d=new drag('thumbs', 'DIV');
+d.objUp=function(){
+    $('submit').style.color='#cc0000';}
+</script>
+
+
+
+<br><br>
+
+</div>
+<div class="hdivin" id="hm5">
+
+<style>
+.spc INPUT{
+    border:0}
+.spc A{
+    text-decoration:none;}
+</style>
+<script>
+    function toDefault()
+    {
+        $("#frm-addType input[name=name]").val('');
+        $("#frm-addType input[name=pricedph]").val('');
+        $("#frm-addType input[name=code]").val('');
+    }
+</script>
+        <form n:name="addType" class="ajax" onsubmit="toDefault()">
+        <table cellpadding="0" cellspacing="0" class="mytable" id="tblverze" style="margin-bottom:10px;font-size:12px;width:800px;">
+    <tr style="background:#ffffcc">
+        <td><?php print(STR_192); ?></td>
+        <td><?php print(STR_167); ?></td>
+        <td><?php print(STR_179); ?></td>
+        <td><?php print(STR_193); ?></td>    
+        <td></td>
+    </tr>
+    <tr>
+            <td width='50%'>
+                <input type="text" size="8" n:name="name" value="" style="width:380px;">
+            </td>
+            <td width='20%'>
+                <input type="text" n:name="pricedph" size="4" value=""><span style="font-size:11px"> €</span>
+            </td>
+            <td width='15%'>
+                <input type="text" n:name="code" size="4" value="">
+            </td>
+            <td>
+                <input type="submit" n:name="send">
+            </td>
+    </tr>
+    </table>
+    </form>
+    
+    {snippet types}
+        {if count($product->getTypes()) > 0}
+<table cellpadding="0" cellspacing="0" class="mytable" id="tblverze" style="margin-bottom:10px;font-size:12px;width:800px;">
+    <tr style="background:#ffffcc">
+        <td><?php print(STR_192);?></td>
+        <td><?php print(STR_167);?></td>
+        <td><?php print(STR_179);?></td>
+        <td><?php print(STR_193);?></td>    
+        <td></td>
+    </tr>
+    {foreach $product->getTypes() as $type}
+        <form action="{link changeType!}" method="POST" class="ajax">
+    <tr>
+        <td width='50%'>
+            <input type="text" name="name" value="{$type->name}" size="50">
+        </td>
+        <td width='20%'>
+           <input type="text" name="price" value="{$type->pricedph}" size="10"> €
+        </td>
+        <td width='15%'>
+            <input type="text" name="code" value="{$type->code}">
+            <input type="hidden" name="typeid" value="{$type->id}">
+        </td>
+        <td>
+            <a n:href="removeType! $type->id" class="ajax"><img src="{$basePath}/images/admin/del.gif" style="cursor:pointer"></a>
+            <input type="submit" value="<?php print(STR_196); ?>">
+        </td>
+    </tr>
+        </form>
+    {/foreach}
+</table>
+    {/if}
+{/snippet}
+</div>
+
+<div class="hdivin" style="overflow:auto;" id="hm6">>
+    <form n:name="addAdditional" class="ajax">
+    <table cellpadding="0" cellspacing="0" class="mytable" id="tbldoplnek" style="margin-bottom:10px;font-size:12px;width:700px;">
+        <tr>
+            <td><?php print(STR_194); ?></td>
+            <td><?php print(STR_114); ?></td>
+        </tr>
+        <tr>
+            <td>
+            <select n:name="extra"></select>
+            </td>
+            <td width="60"><input n:name="send"/></td>
+        </tr>
+    </table>
+    </form>
+    {snippet additionals}
+        {if count($product->getAdditionals()) > 0}
+    <table cellpadding="0" cellspacing="0" class="mytable" id="tbldoplnek" style="margin-bottom:10px;font-size:12px;width:700px;">
+	<tr style="background:#ffffcc">
+	    <td><?php print(STR_194); ?></td>
+            <td><?php print(STR_421); ?></td>
+	</tr>
+        {foreach $product->getAdditionals() as $add}
+            <tr>
+                <td>{$add->getExtraObject()->name}</td>
+                <td width="30"><a n:href="removeAdditional! $add->id" class="ajax"><img src="{$basePath}/images/admin/del.gif" style="cursor:pointer"></a></td>
+            </tr>
+        {/foreach}
+    </table>
+    {/if}
+        {/snippet}
+</div>
+
+<div class="hdivin" id="hm40">
+
+<style>
+.spc INPUT{
+    border:0}
+.spc A{
+    text-decoration:none;}
+</style>
+<script>
+    function toDefault()
+    {
+        $("#frm-addTab input[name=name]").val('');
+    }
+</script>
+        <form n:name="addTab" class="ajax" onsubmit="toDefault()">
+        <table cellpadding="0" cellspacing="0" class="mytable" id="tblverze" style="margin-bottom:10px;font-size:12px;width:800px;">
+    <tr style="background:#ffffcc">
+        <td>Název tabu</td>
+        <td>Akce</td>    
+    </tr>
+    <tr>
+            <td width='80%'>
+                <input type="text" size="8" n:name="name" value="" style="width:380px;">
+            </td>
+            <input n:name="product">
+            <td>
+                <input type="submit" n:name="send">
+            </td>
+    </tr>
+    </table>
+    </form>
+    
+    {snippet tabs}
+        {if count($product->getTabs()) > 0}
+<table cellpadding="0" cellspacing="0" class="mytable" id="tblverze" style="margin-bottom:10px;font-size:12px;width:800px;">
+    <tr style="background:#ffffcc">
+        <td>Název</td>
+        <td>Akce</td>    
+    </tr>
+    {foreach $product->getTabs() as $type}
+        <form action="{link changeTab!}" method="POST" class="ajax">
+    <tr>
+        <td width='80%'>
+            <input type="text" name="name" value="{$type->name}" size="50">
+        </td>
+        <input type="hidden" name="tabid" value="{$type->id}"/>
+        <td>
+            <a n:href="removeTab! $type->id" class="ajax"><img src="{$basePath}/images/admin/del.gif" style="cursor:pointer"></a>
+            <input type="submit" value="upravit">
+        </td>
+    </tr>
+        </form>
+    {/foreach}
+</table>
+    {/if}
+{/snippet}
+</div>
+<?php $qq = 8; ?>
+{foreach $product->getTabs() as $tab}
+    
+    <div class="hdivin"  id="hm{$qq}">
+        <form action="{link changeMyTab!}" method="POST">
+        <table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+            <tr><td><textarea name="content" style="height:400px">{$tab->content}</textarea></td></tr>
+            <tr><td><input type="submit" value="upravit"></td></tr>
+            <input type="hidden" name="tabid" value="{$tab->id}"> 
+            
+        </table>
+        </form>
+    </div>
+    <?php $qq++; ?>
+{/foreach}
+
+
+
+</div>
+</div><!-- /hdivblock -->
+
+<script type="text/javascript">
+
+var last=0;
+function hmenu(i){
+	document.getElementById('hm'+last).style.display='none';
+	document.getElementById('hm'+i).style.display='block';
+	document.getElementById('hmm'+last).className=(last == 0 ? 'first' : '');
+	document.getElementById('hmm'+i).className=(i == 0 ? 'first ' : '')+'on';
+
+	var date = new Date();
+	date.setTime(date.getTime()+(1*24*60*60*1000));
+	var expires = " expires="+date.toGMTString();
+	document.cookie = "protab="+i+";"+expires+"; path=/";
+	last=i;
+}
+
+fullHeight($('hdivarea'));
+hmenu(0);
+</script>
+
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+<style>
+.twbg SPAN{
+    background:#eee}
+.t{
+    float:left}
+.t P{
+    margin:0;padding:0;clear:left;line-height:180%;}
+.t SPAN{
+    width:100px;font-weight:bold;padding:0 5px;margin:0 5px 2px 0;display:block;float:left;-moz-box-sizing:border-box;box-sizing:border-box;}
+
+.hdivw{
+    padding-top:17px}
+.hmenu{
+    clear:both;width:100%}
+.hmenu A{
+    display:block;background:#eee;float:left;padding:5px 10px 3px 10px;margin-right:5px;border:1px solid #ddd;border-color:#ddd #ddd #ddd #ddd; text-decoration:none;font-weight:bold}
+.hmenu A.on{
+    border-color:#aaa #888 #aaa #aaa;border-bottom:none;background:#fff;color:#000;z-index:10;padding-top:7px;position:relative;margin-bottom:-1px;}
+*{
+    -moz-box-sizing:border-box;box-sizing:border-box}
+.hdiv{
+    border:1px solid #aaa;float:left;width:100%;}
+.hdivin{
+    padding:9px;display:none;background:#fff;height:100%}
+.hdivin TEXTAREA{
+    width:100%;height:100%}
+</style>
+<script>
+	function addElement(){
+              var ni = document.getElementById('product-images');
+	      ni.appendChild(document.createElement("br"));
+              var input = document.createElement('input');
+              input.type = "file";
+              input.name = "picture[]";
+              ni.appendChild(input);
+            }
+	    </script>
+{/block}

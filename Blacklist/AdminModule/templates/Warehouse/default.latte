@@ -1,0 +1,145 @@
+{block content}
+{snippet products}
+    <div class="btn16">
+        <a class="ajax {if $selected == 1}on{/if}" n:href="changeState! 'sklad', 1" class="on">1. <?php print(STR_132); ?></a>
+        <a class="ajax {if $selected == 10}on{/if}" n:href="changeState! 'sklad2', 10">2. Sklad Bratislava</a>
+        <a class="ajax {if $selected == 2}on{/if}" n:href="changeState! 'bazar', 2">2. <?php print(STR_133); ?></a>
+        <a class="ajax {if $selected == 3}on{/if}" n:href="changeState! 'rekl', 3">3. <?php print(STR_134); ?></a>
+        <a class="ajax {if $selected == 4}on{/if}" n:href="changeState! 'rekl2', 4">4. <?php print(STR_135); ?></a>
+        <a class="ajax {if $selected == 5}on{/if}" n:href="changeState! 'komise', 5">5. <?php print(STR_136); ?></a>
+        <a class="ajax {if $selected == 6}on{/if}" n:href="changeState! 'recyklace', 6">6. <?php print(STR_137); ?></a>
+        <a class="ajax {if $selected == 7}on{/if}" n:href="changeState! 'vyrobce', 7">7. <?php print(STR_138); ?></a>
+        <a n:href="changeState! 'all', 101" class=" {if 101 == $selected}on{/if}"><?php print(STR_139); ?></a>
+        <!--<a n:href="changeMaxState! 102" class="ajax {if 102 == $selected}on{/if}"><?php print(STR_140); ?></a>-->
+        <a n:href="changeMaxState! 103" class="ajax {if 103 == $selected}on{/if}"><?php print(STR_141); ?></a>
+        <a style="text-decoration:none;border:0;background:transparent" href="{link Warehouse:log}">
+            <strong><?php print(STR_142); ?></strong>
+        </a>
+    </div>
+<div style="clear:both;margin-bottom:10px;"></div>
+<form action="{link change! $type, $selected}" method="post" class="ajax">
+    <input name="typ" value="sklad" type="hidden">
+    
+    <table class="mytable" style="margin:0;">
+        <thead>
+            <tr>
+                <td><?php print(STR_144); ?></td>
+                <td><?php print(STR_145); ?></td>
+                <td></td>
+                <td><?php print(STR_146); ?></td>
+                <td align="right"><?php print(STR_147); ?></td>
+                <td align="right"><?php print(STR_148); ?></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6" style="border-top:5px solid #888;">
+                    <input value="Poznámka" name="note" style="width:100%;margin:0 0 5px 0;color:#555;background:#ffdfba;font-weight:bold;" onclick="if(this.value=='Pozn·mka'){ this.value='';this.style.color='#222';}" onblur="if(this.value==''){ this.value='Poznámka';this.style.color='#555';}" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" style="text-align:right">
+                    <select name="move" style="background:#333;color:#fff">
+                        <option value="sklad" {if $selected == 1}selected{/if}>{if $selected == 1}<?php print(STR_149); ?> <?php print(STR_132); ?>{else}<?php print(STR_150); ?> <?php print(STR_132); ?>{/if}</option>
+                        <option value="sklad2" {if $selected == 10}selected{/if}>{if $selected == 10}<?php print(STR_149); ?> Sklad Bratislava{else}<?php print(STR_150); ?> Sklad Bratislava{/if}</option>
+                        <option value="bazar" {if $selected == 2}selected{/if}>{if $selected == 2}<?php print(STR_149); ?> <?php print(STR_133); ?>{else}<?php print(STR_150); ?> <?php print(STR_133); ?>{/if}</option>
+                        <option value="rekl" {if $selected == 3}selected{/if}>{if $selected == 3}<?php print(STR_149); ?> <?php print(STR_134); ?>{else}<?php print(STR_150); ?> <?php print(STR_134); ?>{/if}</option>
+                        <option value="rekl2" {if $selected == 4}selected{/if}>{if $selected == 4}<?php print(STR_149); ?> <?php print(STR_135); ?>{else}<?php print(STR_150); ?> <?php print(STR_135); ?>{/if}</option>
+                        <option value="komise" {if $selected == 5}selected{/if}>{if $selected == 5}<?php print(STR_149); ?> <?php print(STR_136); ?>{else}<?php print(STR_150); ?> <?php print(STR_136); ?>{/if}</option>
+                        <option value="recyklace" {if $selected == 6}selected{/if}>{if $selected == 6}<?php print(STR_149); ?> <?php print(STR_137); ?>{else}<?php print(STR_150); ?> <?php print(STR_137); ?>{/if}</option>
+                        <option value="vyrobce" {if $selected == 7}selected{/if}>{if $selected == 7}<?php print(STR_149); ?> <?php print(STR_138); ?>{else}<?php print(STR_150); ?> <?php print(STR_138); ?>{/if}</option>
+                    </select>&nbsp;
+                    <input style="padding-left:20px;padding-right:20px" value="<?php print(STR_151); ?>" id="btn" class="b green" type="submit">
+                </td>
+            </tr>
+            <input type="hidden" name="type" value="{$type}"/>
+            {foreach $warehouses as $key => $who}
+                <tr>
+                    <td colspan="6" style="font-weight:bold">
+                        <a href="#" target="_blank">{$key}</a>
+                    </td>
+                </tr>
+                {foreach $who as $warehouse}
+                <input type="hidden" value="{$warehouse->id}" name="warehouse[{$warehouse->getproductObject()->id}]"/>
+                <input type='hidden' value="{$warehouse->getproductObject()->id}" name='product[{$warehouse->getProductObject()->id}]'/>
+            <tr id="trkodZRX65I" style="background: rgb(255, 255, 255);" onmouseover="this.style.backgroundColor='#ffffbb'" onmouseout="this.style.background='#fff'">
+                <td>
+                    <strong>{$warehouse->getProductObject()->code}</strong>
+                </td>
+                <td>
+                    <a target="_blank" href="{link :Front:Product:show $warehouse->getProductObject()->link}">
+                        <span style="font-size:11px">{$warehouse->getProductObject()->link}</span></a>
+                </td>
+                <td>
+                    <select name="sklad_hlidej" class="ajax" onchange="document.location={link changeTime! $warehouse->id, $selected, $type} + '&select=' +this.value">
+                        {foreach $timearray as $tme => $time}
+                            <option class="ajax" value="{$tme}" {if $warehouse->time == $tme}selected{/if}>{$time}</option>
+                        {/foreach}
+                    </select>
+                </td>
+                <td>
+                    <div style="float:left;margin-right:3px;">
+                        <input onclick="this.select()" onkeypress="return noEnter(event)" onkeyup="ksOnKey('ZRX65I',this,0)" style="width:40px;font-weight:bold;background:transparent;" id="ksZRX65I" name="ks[{$warehouse->getProductObject()->id}]" type="text">
+                    </div>
+                    <a id="idplusZRX65I" href="javascript:void(0)" onclick="_addpro(1,'ZRX65I',0,0)" class="plus" alt="Příjem"></a>
+                    <a id="idminusZRX65I" href="javascript:void(0)" onclick="_addpro(-1,'ZRX65I',0,0)" class="minus" alt="Výdej"></a>
+                </td>
+                <td>
+                    <a href="{link Warehouse:log $warehouse->product}">{$warehouse->edit|date:'%d.%m.%Y (%H:%m)'}</a>
+                </td>
+                <td align="right">
+
+                    <span title="Prodáno v objednávkách">{$warehouse->getProductObject()->getTotalSolds()}</span> /
+                    <strong title="Sklad">{$warehouse->stack}</strong>
+                </td>
+                <?php $cort = $warehouse->getProductObject()->getSoldsAvarge(); ?>
+                <td title="<?php print(STR_156); ?> ~{$cort|number:2} <?php print(STR_157); ?> / <?php print(STR_152); ?>" style="color:" align="right">{$cort|number:2} m</td>
+                <td title="<?php print(STR_158); ?> 3 <?php print(STR_153); ?>" class="zames3" align="right">{$warehouse->getProductObject()->getSoldsByMonths(3)}</td>
+                <td title="<?php print(STR_158); ?> 6 <?php print(STR_428); ?>" class="zames6" align="right">{$warehouse->getProductObject()->getSoldsByMonths(6)}</td>
+                <td title="<?php print(STR_158); ?> 9 <?php print(STR_428); ?>" class="zames9" align="right">{$warehouse->getProductObject()->getSoldsByMonths(9)}</td>
+                <td title="<?php print(STR_158); ?> 12 <?php print(STR_428); ?>" class="zames12" align="right">{$warehouse->getProductObject()->getSoldsByMonths(12)}</td>
+            </tr>
+                {/foreach}
+            {/foreach}
+
+        </tbody>
+    </table>
+            {/snippet}
+</form>
+<br>
+<input value="<?php print(STR_159); ?>" onclick="ukazschovane(this)" type="button"><br><br>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+<style>
+
+TD.zames3{ background:#efdddd;}
+TD.zames6{ background:#e8cfcf;}
+TD.zames9{ background:#debaba;}
+TD.zames12{ background:#d09c9c;}
+
+.mytable A{ text-decoration:none;}
+.mytable TD{ font-size:12px;}
+TABLE.mytable{ margin:0;}
+
+INPUT{ font-size:12px;}
+TD.nopad{ padding:0 !important;}
+.btn16{ clear:both;width:100%;margin-bottom:5px;}
+.btn16 A{ display:block;background:#eee;font-weight:bold;font-size:13px;float:left;
+text-decoration:none;padding:5px 8px;margin-bottom:2px;border:1px solid #aaa;border-color:#ccc #777 #777 #ccc;}
+.btn16 A.on:hover{ color:#000;}
+.btn16 A.on{ background:#ccc;color:#000;}
+.btn16 A.oncl{ background:#ffb273;}
+
+A.plus{ background:url(img/plus.gif) no-repeat top;width:28px;height:14px;font-size:0;cursor:default;display:block;float:left;margin-right:3px;}
+A.plus:hover{ background-position:bottom}
+A.minus{ background:url(img/minus.gif) no-repeat top;width:28px;height:14px;font-size:0;cursor:default;display:block;float:left;}
+A.minus:hover{ background-position:bottom}
+</style>
+
+<style>
+.trplus TD{ background:#b8d7ae;}
+.trminus TD{ background:#ffacac;}
+</style>
+{/block}

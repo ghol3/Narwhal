@@ -1,0 +1,362 @@
+{block content}
+<script type="text/javascript" src="scripts.js"></script><div class="heading"><?php print(STR_362); ?> {$order->code} &nbsp;&raquo;&nbsp; <?php print(STR_416); ?></div><script type="text/javascript">if(top.frames.length>0){ top.topframe.document.getElementById("admin_note").innerHTML='Makat se prostÏ musi :-)';}</script><div class="btns"><a href="{link Order:edit $order->id}"><strong><?php print(STR_99); ?> - <?php print(STR_97); ?></strong></a></div>
+
+
+<div style="clear:both"></div>
+
+
+
+
+<style type="text/css">
+.mytextarea{
+border-style: solid;
+border-width: 2px 1px 1px 2px;
+border-color: #808080 #ccc #ccc #808080;
+overflow:hidden;padding:1px;
+}
+.mytextarea TEXTAREA{
+font-family:arial;
+border:0 none white;
+background:#fff;
+outline:none;
+padding:0;
+font-size:1em;
+overflow:hidden;
+resize:none;
+height:1em;
+}
+</style>
+ {snippet products}
+     <form action="{link editProductsOrderNew!}" method="POST" class="ajax">
+    <input type="hidden" name="order" value="{$order->id}">
+<table cellpadding="0" cellspacing="0" class="mytable nows" id="table" style="width:900px;margin-top:20px;clear:both">
+   
+    <thead>
+        <tr>
+            <td class="nobtl"></td>
+            <td><?php print(STR_32); ?></td>
+            <td><?php print(STR_109); ?></td>
+            <td><?php print(STR_82); ?></td>
+            <td><?php print(STR_80); ?></td>
+            <td><?php print(STR_110); ?>/<?php print(STR_85); ?></td>
+            <td><?php print(STR_81); ?></td>
+            <td><?php print(STR_80); ?></td>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach $order->getProducts() as $product}
+            <tr>
+                <td><a class="ajax" n:href="deleteProduct! $product->id, $order->id"><img src="{$basePath}/images/admin/del.gif"/></a></td>
+                <td><input type="text" name="code[{$product->id}]" value="{$product->code}"/></td>
+                <td><input type="text" name="name[{$product->id}]" value="{$product->name}"/></td>
+                <td><input type="text" name="price[{$product->id}]" value="{$product->price|number:2:'.':''}"/> &euro;</td>
+                <td><input type="text" name="pricedph[{$product->id}]" value="{$product->pricedph|number:2:'.':''}"/> &euro;</td>
+                <td><input type="text" name="discount[{$product->id}]" value="{$product->discount}"/></td>
+                <td><input type="text" name="count[{$product->id}]" value="{$product->count}"/> ks</td>
+                <?php $tot = $product->pricedph * (int)$product->count; ?>
+                {if (strpos($product->discount, '%') == true)}
+                     <?php 
+                        $sleva = str_replace('', '%', $product->discount);
+                        $x = ($sleva * $product->pricedph) / 100;
+                     ?>
+                     <td>{($tot -  ($x *(int)$product->count))|number:2} &euro;</td>
+                {else}
+                    <td>{($tot -  ($product->discount *(int)$product->count))|number:2} &euro;</td>
+                {/if}
+                
+            </tr>
+        {/foreach}
+        <tr class="tfoot">
+            <td class="nobblr"></td>
+            <td colspan="4" class="nobbl" style="line-height:160%;">
+                <select name="myproduct" style="width:600px">
+                    <option value="0"><?php print(STR_111); ?></option>
+                    {foreach $products as $product}
+                        <option value="{$product->id}">{$product->name}</option>
+                    {/foreach}
+                </select>
+            </td>
+            <td>
+                <input name="mydiscount" type="text"/>
+            </td>
+            <td>
+                <input name="mycount" type="text"/>
+            </td>
+            <td class="ar"><span id="pocetcelk"></span> ks</td>
+            <td class="ar">
+                <span id="cenacelk">0,00</span> €
+            </td>
+        </tr>
+        <tr class="tfoot">
+            <td colspan="7" class="cen nobblr">
+                <input type="submit" name="send" style="font-weight:bold;margin-top:10px;width:140px;position:relative;left:420px;" value="<?php print(STR_100); ?>">
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+        {/snippet}
+        
+
+<ul class="help">
+</ul>
+
+
+<script type="text/javascript">
+function mycena(o){
+	var tr = getParent(o, 'TR'), els = tr.getElementsByTagName('INPUT'), i, cena_bez, cena;
+	
+	for(i=0;i<els.length;i++){
+		if(els[i].name == 'cena_bez[]') cena_bez=els[i];
+		if(els[i].name == 'cena[]') cena=els[i];
+	}
+	
+	var s = o.value.replace(" ", "");
+	s = s.replace(",", ".");
+	var int = parseFloat(s);
+	
+	if(o.name == 'cena_bez[]'){
+		cena.value = fprice(int*1.21, true);
+		fprice(o);
+	}else{
+		cena_bez.value = fprice(int/1.21, true);
+		fprice(o);
+	}
+	myRecalcDo();
+}
+
+function rowDel(o){
+	var delRow = o.parentNode.parentNode;
+	var tbl = delRow.parentNode.parentNode;
+	var rIndex = delRow.sectionRowIndex;
+	var rowArray = new Array(delRow);
+	for (var i=0; i<rowArray.length; i++) {
+	var rIndex = rowArray[i].sectionRowIndex;
+		rowArray[i].parentNode.deleteRow(rIndex);
+	}
+	myRecalcDo();
+}
+
+var rowscount = 0;
+function addTD(){
+	var tbl=document.getElementById('table');
+	var o=document.getElementById('itemselect');
+
+	if(tbl.rows.length > 2)
+		var i = tbl.rows.length-2;
+	else
+		var i = 1;
+	var row = tbl.insertRow(i);
+
+	var c = row.insertCell(0);
+	c.style.background = '#eee';
+	c.innerHTML='<img src="../img/del.gif" style="cursor:pointer" onclick="return rowDel(this)">'
+		+'<input type="hidden" name="id[]" value="'+rowscount+'">';
+
+	var c = row.insertCell(1);
+	cc = document.createElement('input');
+	cc.type = 'text';
+	cc.size = '7';
+	cc.name = 'kody[]';
+	cc.value = o.options[o.selectedIndex].title;
+	c.appendChild(cc);
+
+	var c = row.insertCell(2);
+	
+	cc = document.createElement('DIV');
+	cc.className = 'mytextarea';
+	
+	if (zo = $('septej')){ // zrusime predchozi
+		sHint.cancel('septej');
+		zo.id='';
+	}
+	
+	ccc = document.createElement('TEXTAREA');
+	ccc.rows = "1";
+	ccc.cols = "80";
+	ccc.name = "nazev[]";
+	ccc.id = 'septej';
+	ccc.setAttribute("autocomplete", "off");
+	cc.appendChild(ccc);
+	c.appendChild(cc);
+	
+	sHint.init('septej', 'edit_order_ajaxpro.php?mena=CZK&s=', function(o, inp){
+		var s=o.id.split('~');
+		var o=getParent(inp, 'TR');
+		var inp=o.getElementsByTagName('INPUT');
+		var name=o.getElementsByTagName('TEXTAREA')[0];
+		inp[1].value = s[0];
+		name.value = s[1];
+		inp[3].value = s[2];
+		mycena(inp[3]);
+	});
+	
+	var c = row.insertCell(3);
+	c.style.backgroundColor = '#eee';
+	c.innerHTML = '<input type="text" size="7" name="cena_bez[]" onkeyup="mycena(this)" value=""></td>';
+	
+	var c = row.insertCell(4);
+	var inpcena = document.createElement('INPUT');
+	inpcena.type = 'text';
+	inpcena.size = '7';
+	inpcena.name = 'cena[]';
+	inpcena.onkeyup = function(){ mycena(this);};
+	inpcena.value = o.value;
+	c.appendChild(inpcena);
+	mycena(inpcena);
+
+	var c = row.insertCell(5);
+	c.innerHTML='<input type="text" size="5" name="sleva[]" onkeyup="myRecalcDo();" value="'+$('globalSleva').value+'">'
+		+'<div id="slevakc'+rowscount+'" style="font-size:11px;color:darkgreen"></div>';
+
+	var c = row.insertCell(6);
+	c.innerHTML='<input type="text" size="2" name="pocet[]" onkeyup="myRecalcDo();" value="1">';
+
+	var c = row.insertCell(7);
+	c.className='ar';
+	c.innerHTML ='<span id="cenadph'+rowscount+'">0</span> KË';
+
+	ccc.focus();
+	ccc.value = o.options[o.selectedIndex].text;
+	o.selectedIndex = 0;
+	
+	rowscount++;
+	myRecalcDo();
+	
+	mytextareas(); // aktivace
+}
+
+
+//-----------------------------------------------
+
+function globsleva(o){
+	var tbl=$('formtable');
+	var a=tbl.elements;
+	for(i=0;i<a.length;i++){
+		if(a[i].name == 'sleva[]') {
+			a[i].value = o.value;
+		}
+	}
+	myRecalcDo();
+}
+
+function myRecalc(objs){
+	var tbl=$('formtable');
+	var a=tbl.elements;
+	for(i=0;i<a.length;i++){
+		if(objs.inArray(a[i].name)) {
+			addEvent(a[i], 'keyup', myRecalcDo);
+		}
+	}
+}
+
+function myRecalcDo(e){
+	if(!e){
+		var e = window.event;
+		if (e) var o = e.srcElement;
+	}else
+		var o = e.target;
+		
+	if(o && o.name == 'sleva[]') $('globalSleva').value = '';
+
+	var pocet, cena, cena_bez, sleva, curid;
+	var tmp = 0;
+	var pocetcelk = 0;
+	var cenacelk = 0;
+
+	var tbl=$('formtable');
+	var a=tbl.elements;
+	for(i=0;i<a.length;i++){
+		if(a[i].name == 'id[]') {
+			curid = a[i].value;
+		}
+		else if(a[i].name == 'cena[]') {
+			var s=a[i].value.replace(" ", "");
+			s = s.replace(',', '.');
+			cena = parseFloat(s);
+		}
+		else if(a[i].name == 'sleva[]') {
+			sleva = 0;
+			proc = a[i].value.indexOf('%');
+			if(proc > 0) {
+				 sleva = parseInt(a[i].value.substr(0, proc)) / 100 * cena;
+				 sleva = Math.round(sleva);			} else if (a[i].value) {
+				sleva = parseInt(a[i].value);
+			}
+		}
+		else if(a[i].name == 'pocet[]') {
+			if(a[i].value > 0) pocet = parseInt(a[i].value);
+			else pocet = 0;
+			pocetcelk+= pocet;
+		}
+
+		if(pocet != undefined && cena != undefined && sleva != undefined) {
+			if(false){} //cena-sleva < 0 && sleva != 0) tmp=0;
+			else {
+				tmp = (cena-sleva)*pocet;
+				if(proc > 0) {
+					$('slevakc'+curid).innerHTML = '-'+fprice(sleva)+' CZK';
+					$('slevakc'+curid).style.display = '';
+					$('slevakc'+curid).style.color = '#cc0000';
+				} else {
+					$('slevakc'+curid).innerHTML = fprice(sleva)+' CZK';
+					$('slevakc'+curid).style.display = 'none';
+				}
+			}
+			$('cenadph'+curid).innerHTML = fprice(tmp, 2);
+			cenacelk+= tmp;
+			pocet = undefined;
+			sleva = undefined;
+			cena = undefined;
+		}
+	}
+	$('cenacelk').innerHTML = fprice(cenacelk, true);
+	$('pocetcelk').innerHTML = pocetcelk;
+}
+
+myRecalc(['cena[]','pocet[]','sleva[]']);
+
+
+
+//------------------- TEXTAREAS
+
+function mytextareas() {
+    var objs = $('table').getElementsByTagName('TEXTAREA');
+	function resize(o) {
+		o.style.height = 'auto';
+		o.style.height = o.scrollHeight+'px';
+    }
+    function delayedResize(o) {
+		setTimeout(function(){ resize(o);}, 0);
+    }	
+	for(var i=0; i<objs.length; i++)
+	{
+		var obj=objs[i];
+		if (!obj.mytextarea){
+			obj.mytextarea=1;
+			addEvent(obj, 'change',  function(){ resize(this);});
+			addEvent(obj, 'cut',     function(){ delayedResize(this);});
+			addEvent(obj, 'paste',   function(){ delayedResize(this);});
+			addEvent(obj, 'drop',    function(){ delayedResize(this);});
+			addEvent(obj, 'keydown', function(){ delayedResize(this);});
+		}
+		resize(obj);
+	}
+}
+mytextareas();
+</script>
+
+
+
+
+
+<br /><br />
+<!------------------------------- TABS -------------------------------->
+
+
+
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+{/block}

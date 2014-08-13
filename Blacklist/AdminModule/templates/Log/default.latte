@@ -1,0 +1,37 @@
+{block content}
+    <div class="heading"><?php print(STR_385); ?></div>
+    <a n:href="removeAll!" class='ajax'><strong><?php print(STR_386); ?></strong></a>
+    <img src="{$basePath}/images/admin/sep.gif" align="absmiddle" style="margin:0 5px">
+    <a href="{link Log:default}"><strong><?php print(STR_385); ?></strong></a> 
+    {snippet logs}
+	<table cellpadding="0" cellspacing="0" class="mytable" id="table" style="margin-top:20px;margin-left:15px">
+            <thead>
+		<tr style="font-size:11px">
+                    <td><?php print(STR_220); ?></td>
+                    <td align="center"><?php print(STR_269); ?></td>
+                    <td align="center" width='800'><?php print(STR_193); ?></td>
+                    <td align="center"><?php print(STR_248); ?></td>
+                </tr>
+            </thead>
+            <tbody>
+                {foreach $logs as $log}
+		<tr>
+                    <td align="center">{$log->id}</td>
+                    <td align="center">{$log->getUserObject()->account}</td>
+                    <td align='left'>{$log->action}</td>
+                    <td align="center">{$log->date|date:'%d.%m.%Y'}</td>
+                </tr>
+                {/foreach}
+                <tr class="tfoot">
+                    <td colspan="12" class="nobblr" style="padding:10px 0 30px 0;text-align:right">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+                {/snippet}
+    </form>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+{/block}

@@ -1,0 +1,101 @@
+{block content}
+<div class="heading"><?php print(STR_113); ?></div><script type="text/javascript">if(top.frames.length>0){ top.topframe.document.getElementById("admin_note").innerHTML='Makat se prostÏ musi :-)';}</script>
+
+<div style="float:right;margin-right:20px">
+<a href="{link Dealer:map}" target="_blank" style="font-size:16px"><strong><?php print(STR_116); ?></strong></a>
+</div>
+{snippet svine}
+<form n:name='addDealer' class='ajax'>
+<strong><?php print(STR_112); ?>:</strong> 
+<input n:name='dealer' style="width:250px;">
+<input n:name='send' style="font-size:11px;font-weight:bold;padding:3px;width:auto;" value="<?php print(STR_114); ?>">
+<div style="margin:2px 0">
+<?php print(STR_115); ?>
+</div>
+<br>
+
+</form>
+{/snippet}
+<style>
+A{ color:#0033cc;text-decoration:underline;}
+.b{ background:transparent;}
+.b,.bo{ font-weight:bold}
+
+TABLE{ border:1px solid #aaa;border-collapse:collapse;}
+TD{ line-height:150%;border:1px solid #aaa;border-color:#aaa #ddd;padding:4px 5px;}
+
+.bar1{ background:#42ad5e;height:5px;font-size:0;margin-top:2px;}
+.bar2{ background:#ff7f00;height:5px;font-size:0;margin-top:2px;}
+.bar3{ background:#425ead;height:5px;font-size:0;margin-top:2px;}
+.bar{ background:#000;height:5px;font-size:0;margin-top:2px;}
+</style>
+
+<div>
+    {snippet dealers}
+<table cellpadding="3" cellspacing="0" style="margin:0 0 10px 0;width:100%;">
+<tr style="background:#eee;">
+<td>#</td>
+<td><?php print(STR_118); ?></td>
+<td><a href="?ord=jmeno"><?php print(STR_119); ?></a></td>
+<td><?php print(STR_338); ?></td>
+<td><a href="?ord=obrat30"><?php print(STR_121); ?></a></td>
+<td><a href="?ord=obrat60"><?php print(STR_122); ?></a></td>
+<td><a href="?ord=obrat90" class="b"><?php print(STR_123); ?></a></td>
+<td><a href="?ord=obrat"><?php print(STR_124); ?></a></td>
+<td colspan="3">&nbsp;</td>
+</tr>
+<?php $i = 1; ?>
+    {foreach $dealers as $dealer}
+    <tr>
+        <td align="right">{$i}</td>
+        <td><a style="float:right" href="javascript:zmen('{$dealer->identificator}', {$dealer->id})" class="ajax"><img src="{$basePath}/images/admin/edit.gif" title="Přejmenovat"/></a><strong>{$dealer->id}</strong>&nbsp; {$dealer->identificator}</td>
+        <td><a style="color:#000d8e" href="{link Order:edit $dealer->lastOrder}"  target="_blank"><strong>{$dealer->name}</strong></td>
+        <td>{$dealer->city}</td>
+        <?php $a = $dealer->getTurnOver(1); $b = $dealer->getTurnOver(2); $c = $dealer->getTurnOver(3); $d = $dealer->getTurnOver(0);?>
+        <td align="right">{$a|number:2} €<div style="width:<?php print($a / ($d / 100)); ?>%" class="bar1"></div></td>
+        <td align="right">{$b|number:2} €<div style="width:<?php print($b / ($d / 100)); ?>%" class="bar2"></div></td>
+        <td align="right">{$c|number:2} €<div style="width:<?php print($c / ($d / 100)); ?>%" class="bar3"></div></td>
+        <td align="right">{$d|number:2} €<div style="width:100%" class="bar"></div></td>
+        <td align="right" width="16"><a class="ajax" n:href="removeDealer! $dealer->id" style="color:#cc0000"><img src="{$basePath}/images/admin/del.gif" alt="Odstranit prodejce" /></a></td>
+    </td>
+    <?php $i++; ?>
+    {/foreach}
+</table>
+
+{/snippet}
+
+<script type="text/javascript">
+function zmen(s, id){
+	var p=prompt('<?php print(STR_128); ?>:', s);
+	if(typeof p!='undefined' && p!='' && p!='null' && p!=null){
+		document.location={link changeIdentificator!} + '&identificator=' + p + '&dealerId=' + id;
+	}
+	return false;
+}
+</script>
+<div class="note" style="text-align:right;color:#555;">
+<img src="img/info.gif" width="16" height="16" align="absmiddle"> 
+<?php print(STR_125); ?><br />
+<strong><?php print(STR_126); ?></strong>
+</div>
+{snippet nodealers}
+{if count($nodealers) != 0}
+<span style="color:#cc0000"><strong><?php print(STR_127); ?>:</strong></span>
+<ul>
+    {foreach $nodealers as $nodealer}
+    <li>
+        {$nodealer->identificator}&nbsp;
+        <a class="ajax" n:href="removeNoDealer! $nodealer->id">
+            <img src="{$basePath}/images/admin/del.gif" align="absmiddle" alt="SMAZAT {$nodealer->identificator}" />
+        </a>
+    </li>
+    {/foreach}
+</ul>
+{/if}
+{/snippet}
+</div>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+{/block}

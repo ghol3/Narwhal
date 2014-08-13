@@ -1,0 +1,112 @@
+{block content}
+<script type="text/javascript" src="sklad_evidence.php_soubory/scripts.js"></script><style>
+    TD.zames3{ background:#efdddd;}
+    TD.zames6{ background:#e8cfcf;}
+    TD.zames9{ background:#debaba;}
+    TD.zames12{ background:#d09c9c;}
+
+    .mytable A{ text-decoration:none;}
+    .mytable TD{ font-size:12px;}
+    TABLE.mytable{ margin:0;}
+
+    INPUT{ font-size:12px;}
+    TD.nopad{ padding:0 !important;}
+    .btn16{ clear:both;width:100%;margin-bottom:5px;}
+    .btn16 A{ display:block;background:#eee;font-weight:bold;font-size:13px;float:left;
+    text-decoration:none;padding:5px 8px;margin-bottom:2px;border:1px solid #aaa;border-color:#ccc #777 #777 #ccc;}
+    .btn16 A.on:hover{ color:#000;}
+    .btn16 A.on{ background:#ccc;color:#000;}
+    .btn16 A.oncl{ background:#ffb273;}
+
+    A.plus{ background:url(img/plus.gif) no-repeat top;width:28px;height:14px;font-size:0;cursor:default;display:block;float:left;margin-right:3px;}
+    A.plus:hover{ background-position:bottom}
+    A.minus{ background:url(img/minus.gif) no-repeat top;width:28px;height:14px;font-size:0;cursor:default;display:block;float:left;}
+    A.minus:hover{ background-position:bottom}
+</style>
+{snippet products}
+<div class="btn16">
+        <a class="ajax {if $selected == 1}on{/if}" n:href="changeState! 'sklad', 1" class="on">1. <?php print(STR_132); ?></a>
+        <a class="ajax {if $selected == 10}on{/if}" n:href="changeState! 'sklad2', 10">Sklad Bratislava</a>
+        <a class="ajax {if $selected == 2}on{/if}" n:href="changeState! 'bazar', 2">2. <?php print(STR_133); ?></a>
+        <a class="ajax {if $selected == 3}on{/if}" n:href="changeState! 'rekl', 3">3. <?php print(STR_134); ?></a>
+        <a class="ajax {if $selected == 4}on{/if}" n:href="changeState! 'rekl2', 4">4. <?php print(STR_135); ?></a>
+        <a class="ajax {if $selected == 5}on{/if}" n:href="changeState! 'komise', 5">5. <?php print(STR_136); ?></a>
+        <a class="ajax {if $selected == 6}on{/if}" n:href="changeState! 'recyklace', 6">6. <?php print(STR_137); ?></a>
+        <a class="ajax {if $selected == 7}on{/if}" n:href="changeState! 'vyrobce', 7">7. <?php print(STR_138); ?></a>
+        <a n:href="changeState! 'all', 101" class="ajax {if 101 == $selected}on{/if}"><?php print(STR_139); ?></a>
+        <!--<a n:href="changeMaxState! 102" class="ajax {if 102 == $selected}on{/if}"><?php print(STR_140); ?></a>-->
+        <a n:href="changeMaxState! 103" class="ajax {if 103 == $selected}on{/if}"><?php print(STR_141); ?></a>
+        <a style="text-decoration:none;border:0;background:transparent" href="{link Warehouse:default}">
+            <strong><?php print(STR_143); ?></strong>
+        </a>
+    </div>
+
+<table class="mytable">
+    <thead>
+        <tr>
+            <td style="padding:0">
+                <select name="mY" onchange="document.location='">
+                    <option selected="selected" value=""><?php print(STR_161); ?> 31 <?php print(STR_429); ?></option>
+                    <option value="all">=== <?php print(STR_160); ?> ===</option>
+                </select>
+            </td>
+            <td style="padding:0;">
+                <select name="fkod" class="ajax" onchange="location.href={link filterLogByCode!} + '&code=' + this.options[this.options.selectedIndex].value">
+                    <option selected="selected" value="" style="background:#ddd">= <?php print(STR_179); ?> =</option>
+                    {foreach $codes as $code}
+                        <option value="{$code->getProductObject()->code}">{$code->getProductObject()->code}</option>
+                    {/foreach}
+                </select>
+            </td>
+            <?php $l = 0; ?>
+            <td align="right">{if isset($_GET['pid'])}{foreach $logs as $log}<?php $l += $log->stack; ?>{/foreach}{$l}{/if}</td>
+            <td style="padding:0;">
+                <select name="fuzivatel" onchange="location.href={link filterLogByUser!} + '&user=' + this.options[this.options.selectedIndex].value">
+                    <option selected="selected" value="" style="background:#ddd">= <?php print(STR_269); ?> =</option>
+                    {foreach $users as $u}
+                        <option value="{$u->id}">{$u->getUserInfo()->username} {$u->getUserInfo()->surname}</option>
+                    {/foreach}
+                </select>
+            </td>
+            <td style="padding:0 2px;">
+                <input style="width:160px;float:right;font-weight:bold;" value="<?php print(STR_165); ?>" onclick="location.href={link filterLogByProduct!}" type="button">
+                <input style="width:300px;background-color:#eee;color:#555;padding-left:3px;" value="<?php print(STR_164); ?>" onkeypress="pofiltr_key(this,event)" onclick="pofiltr_on(this)" id="pofiltr" onblur="pofiltr_off(this)" type="text">
+            </td>
+            <td class="nobtlr">
+                
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {foreach $logs as $log}
+            <tr id="trid{$log->id}" style="background: none repeat scroll 0% 0% rgb(255, 255, 255);" onmouseover="this.style.backgroundColor='#ffffbb'" onmouseout="this.style.background='#fff'">
+            <td>
+                <input onkeypress="editnow_enter({$log->id},event)" value="{$log->date}" style="display:none" id="inpdatum32785" size="19" type="text">
+                <span style="font-size:11px">{$log->date|date:'%d.%m.%Y (%H:%M)'}</span>
+            </td>
+            <td>
+                <a href="http://www.antiradary.net/.admin/sklad_evidence.php?p=vypis&amp;typ=sklad&amp;fkod=INFOB" title="">{$log->code}</a>
+            </td>
+            <td style="letter-spacing:1px;white-space:nowrap;font-weight:bold;" align="right">
+                <span id="lblks{$log->id}" class="red">{$log->stack}</span>
+                <input style="display:none" onkeypress="editnow_enter({$log->id},event)" id="inpks{$log->id}" value="-1" size="2" type="text">
+            </td>
+            <td style="text-align:center"><strong>{$log->getUser()->getUserInfo()->username} {$log->getUser()->getUserInfo()->surname}</strong></td>
+            <td><span id="lblpoznamka32785">{$log->note}</a>
+                </span>
+                <input onkeypress="editnow_enter({$log->id},event)" style="display:none" size="60" id="inppoznamka{$log->id}" type="text">
+                <select id="inp_sklad_typ{$log->id}" style="display:none"><option value="sklad" selected="selected">SKLAD</option><option value="bazar">BAZAR</option><option value="rekl">REKLAMACE</option><option value="rekl2">REKLAMACE NA CESTÃ</option><option value="komise">KOMISE</option><option value="recyklace">RECYKLACE</option><option value="vyrobce">U V›ROBCE</option></select>
+            </td>
+            <td style="background:#ddd">
+                <img src="{$basePath}/images/admin/edit.gif" onclick="editnow({$log->id})" style="cursor:pointer">&nbsp;&nbsp;&nbsp;
+                <a n:href="removeRecord! $log->id, $type, $selected" class="ajax"><img  class="ajax" src="{$basePath}/images/admin/del.gif" style="cursor:pointer"></a></td>
+        </tr>
+        {/foreach}
+</tbody>
+</table>
+{/snippet}
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+{/block}

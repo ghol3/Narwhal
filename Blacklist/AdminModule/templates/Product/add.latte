@@ -1,0 +1,406 @@
+{block content}
+<script type="text/javascript" src="scripts.js"></script>
+    <div class="heading"><?php print(STR_111); ?></div>
+<form n:name="addForm" enctype="multipart/form-data">
+
+<div style="float:right"><input type="submit" style="font-weight:bold;color:#005400;font-size:16px" value="<?php print(STR_183); ?>"></div>
+
+<div class="btns" style="margin-bottom:12px;clear:none;float:left;width:auto"><a href="{link Product:default}"><strong><?php print(STR_99); ?> - <?php print(STR_173); ?></strong></a></div>
+<div class="btns" style="margin-bottom:12px;clear:none;float:left;width:auto;align:left;"></div>
+
+
+<div style="clear:both;font-size:0;height:0"></div>
+<div id="baseform" class="t twbg" style="width:430px">
+<p><span><?php print(STR_14); ?>:</span>
+    <select n:name='category'>
+    </select>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                $("#nazev").keyup(function(){
+                    $("#url").val(make_url($(this).val()));
+                });
+            });
+        </script>
+<script type="text/javascript">
+
+function dropdown(id){
+	var o=$(id);
+	var t=$('dd2x');
+	var xy=[t.offsetLeft+t.offsetParent.offsetLeft, t.offsetTop+t.offsetParent.offsetTop+t.offsetParent.offsetTop];
+	if(o.style.display=='block') return ddhide(id);
+	o.style.left=xy[0]+10+'px';
+	o.style.top=xy[1]+t.offsetHeight+'px';
+	t.className='dropdown dropdown1';
+	o.style.display='block';
+	return false;
+}
+function ddcheck(id,on){
+	var o=$(id), i;
+	var oo=o.getElementsByTagName('INPUT');
+	for(i=0;i<oo.length;i++){
+		if(oo[i].type=='checkbox'){
+			oo[i].checked=on;
+		}
+	}
+	return false;
+}
+
+document.body.onmousedown=function(e){
+	if(!e) e=window.event;
+	var t=e.target || e.srcElement;
+	var p=getParent(t, 'DIV', 'dropdown2');
+	if(p || t.className=='dropdown dropdown1' || t.className=='dropdown') return true;
+	ddhide('dd2');
+}
+function ddhide(id){
+	var o=$(id);
+	var t=$(id+'x');
+	var s='';
+	var all=1;
+	var oo=o.getElementsByTagName('DIV');
+	for(i=1;i<oo.length;i++){
+		var ch=oo[i].getElementsByTagName('INPUT')[0];
+		var lbl=oo[i].getElementsByTagName('LABEL')[0];
+
+		if(ch.checked) s+=(s?', ':'')+lbl.innerHTML;
+		else all=0;
+	}
+
+	t.innerHTML=all ? 'vöechny' : (s ? s : '&ndash; vyber kategorii &ndash;');
+
+	o.style.display='none';
+	t.className='dropdown';
+	return false;
+}
+ddhide('dd2'); // default
+
+
+function hpouzit(i)
+{
+	var o=$('apouzit');
+	if(o){
+		isDisabled=i?0:1;
+		o.style.color=i?'#cc0000':'#666';
+	}
+}
+</script>
+</p>
+
+
+<!--
+<select id="kategorie" idkat="0" onchange="this.idkat=this.value" name="idkat" style="vertical-align:middle">
+</select> -->
+
+
+<p><span><?php print(STR_109); ?>:</span><input id="nazev" class="txt_name" type="text" n:name="name"  style="width:310px"></p>
+<p><span><?php print(STR_177); ?>:</span><div style="display:inline;position:relative;top:-1px;margin-right:5px;color:#444">{$settings->siteurl}/</div><input
+ type="text" n:name="link" id="url" style="width:196px;color:darkblue"></p>
+<p><span><?php print(STR_179); ?>:</span><input id="title" type="text" n:name="code" style="width:310px"></p>
+<p><span><?php print(STR_178); ?>:</span><input id="title" n:name="score" style="width:310px"></p>
+</div>
+
+<!-- ####################################################### -->
+
+<div id="baseform" class="t twbg">
+<p><span><?php print(STR_180); ?>:</span><div style="display:inline;position:relative;top:-1px;margin-right:5px;color:#444"></div><input n:name="image" style="width:182px;color:darkblue" id="obrazek" /></p>
+
+<p><span><?php print(STR_181); ?>:</span><input type="text" n:name="warranty" style="width:264px;margin-right:3px">
+</p>
+<p><span><?php print(STR_182); ?>:</span><input  n:name="stock" style="width:264px;margin-right:3px">
+</p>
+<p><span><?php print(STR_167); ?>:</span><input  n:name="pricedph" style="width:264px;margin-right:3px"> €
+</p>
+<p><span><?php print(STR_172); ?>:</span><input n:name="company" style="width:264px;margin-right:3px"></p>
+<!--<p><span style="width:150px;">Parametry (překlad):</span><input n:name="tparams" style="width:214px;"/></p>
+<p><span style="width:150px;">Detaily (překlad):</span><input n:name="tdetails" style="width:214px;"/></p>
+<p><span style="width:150px;">Základní (překlad):</span><input n:name="tbasic" style="width:214px;"/></p>-->
+</div>
+
+<!-- ####################################################### -->
+
+<div style="clear:both"></div>
+<div id="hdivblock" class="hdivw">
+
+<div class="hmenu">
+    <a href="javascript:void(0)" id="hmm0" onclick="hmenu(0)"><?php print(STR_184); ?></a>
+    <!--<a href="javascript:void(0)" id="hmm2" onclick="hmenu(2)">Obrázky</a>-->
+    <!--<a href="javascript:void(0)" id="hmm4" onclick="hmenu(4)">Verze a ceny produktu</a>-->
+    <!--<a href="javascript:void(0)" id="hmm5" onclick="hmenu(5)">Doplňky</a>-->
+</div>
+
+<div id="hdivarea" class="hdiv">
+
+<div class="hdivin" style="display:block" id="hm0">
+<table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+<tr>
+<td style="line-height:120%;padding-bottom:7px">
+<div style="color:red;margin-top:5px;padding-left:10px;font-family:courier new;font-size:12px">
+</div>
+</td>
+</tr>
+<tr>
+<td style="height:100%"><textarea n:name="description" style="height:400px"></textarea></td>
+</tr>
+</table>
+</div>
+
+<!-- ############################### -->
+
+<!-- ############################### -->
+
+<!-------------------------------------------------------------------- FOTKY -->
+<div class="hdivin" id="hm2" style="overflow:auto;">
+
+
+
+<div id="product-images">
+
+</div>
+<!-- NOVY -->
+
+<div id="thumbs">
+
+</div>
+
+<script type="text/javascript" src="http://www.antiradary.net/.admin/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="http://www.antiradary.net/.admin/swfupload/my_swfupload.js"></script>
+<link href="http://www.antiradary.net/.admin/swfupload/my_swfupload.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://www.antiradary.net/.admin/swfupload/my_drag.js"></script>
+<script type="text/javascript">
+var SID='mi12539t2vifn1u9r906cmqa77', ROOT='http://www.antiradary.net/.admin/', GET='?id=65';
+var d=new drag('thumbs', 'DIV');
+d.objUp=function(){
+    $('submit').style.color='#cc0000';}
+</script>
+
+
+
+<br><br>
+
+</div>
+
+
+<!-- ############################### -->
+
+<div class="hdivin" id="hm3">
+<table style="height:100%;width:100%" cellpadding="0" cellspacing="0">
+<tr>
+<td style="line-height:120%;padding-bottom:7px">
+<div style=";border-bottom:1px solid #ddd;padding-bottom:4px">UklŠdat (nŠhledovż obrŠzek a FLV) do: <strong>videoflash/</strong></div>
+<div style="color:#333;margin-top:5px;padding-left:10px;font-family:courier new;font-size:12px">
+video.flv, obrazek1.jpg, Popis videa<br>
+video2.flv, obrazek2.jpg, Popis videa
+</div>
+</td>
+</tr>
+<tr>
+<td style="height:100%"><textarea name="video">27xSqgBZf48
+G6HVJHKqhPc
+g6qEP0XonIM
+vFWsWz5pROM
+t_Oh_oezQig
+BZXqcBAtAKM
+PDDCmTbvbAY
+rT80mPpaxoQ
+ByKODUEJDl8
+VJ9XmIhAXaE
+wkWBVRsn95A
+LE1nc1F6WSg
+uRHra8JtQUQ
+118YGUsfOtk
+Q6rkWnjFo7I
+9RccDZth2dg
+YkAx_VRKDNw</textarea></td>
+</tr>
+</table>
+</div>
+
+<!-- ############################### -->
+
+<div class="hdivin" id="hm4">
+
+<script type="text/javascript">
+function pridejverzi()
+{
+	var tbl = document.getElementById('tblverze');
+	var i = tbl.rows.length-1;
+	var row = tbl.insertRow(i);
+	var c = row.insertCell(0);
+	c.innerHTML='<input type="text" size="8" name="typename[]" value="" style="width:380px;">';
+	var c = row.insertCell(1);
+	c.innerHTML='<input type="text" name="typeprice[]" value="" size="4" onkeyup="javascript:fprice(this)"><span style="font-size:11px"> </span>';
+    var c = row.insertCell(2);
+    c.innerHTML='<input type="text" name="typecode[]" value="" size="4">';
+
+	var c = row.insertCell(3);
+	c.innerHTML='<input type="text" name="typehmotnost[]" value="" size="4"><span style="font-size:11px"> Kg</span>';
+	
+	var c = row.insertCell(4);
+	c.innerHTML='<input type="checkbox" name="typeactive[]">';
+	c.align='center';
+
+	var c = row.insertCell(7);
+}
+
+function pridejdoplnek()
+{
+    var td = document.getElementById('tbldoplnek');
+    var combo = document.getElementById('product-addits');
+    var newE = combo.cloneNode(true);
+    
+    var i = td.rows.length-1;
+    var row = td.insertRow(i);
+    var c = row.insertCell(0);
+   
+    //td.appendChild(newE);
+	
+    //td.appendChild(newE);
+}
+
+function rowDel(o){
+	var delRow = o.parentNode.parentNode;
+	var tbl = delRow.parentNode.parentNode;
+	var rIndex = delRow.sectionRowIndex;
+	var rowArray = new Array(delRow);
+	for (var i=0; i<rowArray.length; i++) {
+	var rIndex = rowArray[i].sectionRowIndex;
+		rowArray[i].parentNode.deleteRow(rIndex);
+	}
+}
+
+function fkomplet(i){
+	$('spc'+i).style.display='none';
+	$('skomplet'+i).style.display='block';
+}
+
+function fsouvisejici(i){
+	$('spc'+i).style.display='none';
+	$('ssouvisejici'+i).style.display='block';
+}
+</script>
+
+<style>
+.spc INPUT{
+    border:0}
+.spc A{
+    text-decoration:none;}
+</style>
+
+
+
+<table cellpadding="0" cellspacing="0" class="mytable" id="tblverze" style="margin-bottom:10px;font-size:12px;width:800px;">
+<tr style="background:#ffffcc">
+<td>Název verze</td>
+<td>Cena vč. DPH</td>
+<td>KÓD</td>
+<td>Hmotnost</td>
+<td>Aktivní</td>
+<td></td>
+</tr>
+
+<td colspan="7">
+    <div style="float:right"><input type="button" value="Přidej další pole" onclick="javascript:pridejverzi()"></div>
+</td>
+</table>
+
+
+</div>
+
+<div class="hdivin" style="overflow:auto;" id="hm5">
+    <table cellpadding="0" cellspacing="0" class="mytable" id="tbldoplnek" style="margin-bottom:10px;font-size:12px;width:700px;">
+	<tr style="background:#ffffcc">
+	    <td><?php print(STR_194); ?></td>
+	</tr>
+	
+	<td colspan="7">
+	    <div style="float:right"><input type="button" value="Přidej další pole" onclick="javascript:pridejdoplnek()"></div>
+	</td>
+    </table>
+</div>
+
+<!-- ############################### -->
+
+<div class="hdivin" id="hm5">
+
+<div style="padding-top:10px">
+
+<strong>Hmotnost v Kg:</strong>
+
+ ve vŪce verzŪch<br>
+<br>
+<strong>Ukazuj ve skladovť ev.:</strong> <input type="checkbox" name="ukaznasklade">
+<br>
+<br>
+<br>
+
+
+<strong>POUZE v pÝŪpadž, ěe tento produkt nemŠ verze (v pÝŪpadž, ěe mŠ verze pak nŠvötžvnŪk jednu vybere):</strong>
+
+<div style="padding:15px">
+<strong style="color:#555">Kůd (nevratnŠ zmžna):</strong> <input type="text" name="kod" value="">
+<br>
+<br>
+<strong style="color:#555">Kůdy souvisejŪcŪch:</strong> <input type="text" name="souvisejici" size="45" value=""><br>
+<strong style="color:#555">NEBO kůdy produktý v tomto kompletu:</strong> <input type="text" size="45" name="komplet" value=""><br>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+</div><!-- /hdivblock -->
+
+<script type="text/javascript">
+
+var last=0;
+function hmenu(i){
+	document.getElementById('hm'+last).style.display='none';
+	document.getElementById('hm'+i).style.display='block';
+	document.getElementById('hmm'+last).className=(last == 0 ? 'first' : '');
+	document.getElementById('hmm'+i).className=(i == 0 ? 'first ' : '')+'on';
+
+	var date = new Date();
+	date.setTime(date.getTime()+(1*24*60*60*1000));
+	var expires = " expires="+date.toGMTString();
+	document.cookie = "protab="+i+";"+expires+"; path=/";
+	last=i;
+}
+
+fullHeight($('hdivarea'));
+hmenu(0);
+</script>
+</form>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+<style>
+.twbg SPAN{
+    background:#eee}
+.t{
+    float:left}
+.t P{
+    margin:0;padding:0;clear:left;line-height:180%;}
+.t SPAN{
+    width:100px;font-weight:bold;padding:0 5px;margin:0 5px 2px 0;display:block;float:left;-moz-box-sizing:border-box;box-sizing:border-box;}
+
+.hdivw{
+    padding-top:17px}
+.hmenu{
+    clear:both;width:100%}
+.hmenu A{
+    display:block;background:#eee;float:left;padding:5px 10px 3px 10px;margin-right:5px;border:1px solid #ddd;border-color:#ddd #ddd #ddd #ddd; text-decoration:none;font-weight:bold}
+.hmenu A.on{
+    border-color:#aaa #888 #aaa #aaa;border-bottom:none;background:#fff;color:#000;z-index:10;padding-top:7px;position:relative;margin-bottom:-1px;}
+*{
+    -moz-box-sizing:border-box;box-sizing:border-box}
+.hdiv{
+    border:1px solid #aaa;float:left;width:100%;}
+.hdivin{
+    padding:9px;display:none;background:#fff;height:100%}
+.hdivin TEXTAREA{
+    width:100%;height:100%}
+</style>
+{/block}

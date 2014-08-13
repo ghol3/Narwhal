@@ -1,0 +1,128 @@
+{block title}{$settings->title} - {$post->subject}{/block}
+{block content}
+<section class="post-wrapper-top jt-shadow clearfix">
+    <div class="container">
+        <div class="col-lg-12">
+            <h2>{$post->subject}</h2>
+            <ul class="breadcrumb pull-right">
+                <li><a href="{link Forum:posts}">Poradňa</a></li>
+                <li>{$post->subject}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="blog-wrapper">
+    <div class="container">
+        <div id="content" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                
+                <div id="bbpress-forums">
+{snippet flashes}
+                    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+                {/snippet}
+                    <div class="bbp-pagination">
+                        {snippet nums}
+                        <div class="bbp-pagination-count">
+                            Počet odpovedí vo vlákne ({count($post->getReply())})
+                        </div>
+                        {/snippet}
+                        <div class="bbp-pagination-links">
+
+                        </div>
+                    </div>
+                    {snippet posts}
+                    <ul id="topic-136-replies" class="forums bbp-replies">
+                        <li class="bbp-header">
+                            <div class="bbp-reply-author">Autor</div><!-- .bbp-reply-author -->
+                            <div class="bbp-reply-content">
+                                Správa
+                            </div><!-- .bbp-reply-content -->
+                        </li><!-- .bbp-header -->
+
+                        <li class="bbp-body">
+                            <div id="post-136" class="bbp-reply-header">
+                                <div class="bbp-meta">
+                                    <span class="bbp-reply-post-date">{$post->date|date:'%d.%m.%Y %H:%m'}</span>
+                                    <a href="#1" class="bbp-reply-permalink">#1</a>		
+                                    <span class="bbp-admin-links"></span>
+                                </div><!-- .bbp-meta -->
+
+                            </div><!-- #post-136 -->
+
+                            <div class="post-136 topic type-topic status-publish hentry odd bbp-parent-forum-134 bbp-parent-topic-136 bbp-reply-position-1 user-id-1 topic-author instock">
+
+                                <div class="bbp-reply-author">
+                                    <a href="#" title="View admin's profile" class="bbp-author-avatar" rel="nofollow"><img alt="" src="{$basePath}/images/default-avatar.png" class="avatar avatar-80 photo" height="80" width="80"></a><br><a href="#" title="View admin's profile" class="bbp-author-name" rel="nofollow">{if $post->name != ''}Užívateľ{else}Antiradary.SK{/if}</a><br><div class="bbp-author-role">{if $post->name != ''}{$post->name}{else}{$post->getUserObject()->getUserInfo()->username} {$post->getUserObject()->getUserInfo()->surname}{/if}</div>
+                                </div><!-- .bbp-reply-author -->
+
+                                <div class="bbp-reply-content">
+                                    <p>{$post->message}</p>
+                                </div><!-- .bbp-reply-content -->
+                            </div><!-- .reply -->
+                        </li><!-- .bbp-body -->
+                        
+                        <?php $ix = 2; ?>
+                        {foreach $post->getReply() as $reply}
+                            <li class="bbp-body">
+                                <div id="post-136" class="bbp-reply-header">
+                                    <div class="bbp-meta">
+                                        <span class="bbp-reply-post-date">{$reply->date|date:'%d.%m.%Y %H:%m'}</span>
+                                        <a href="#" class="bbp-reply-permalink">#{$ix}</a>{if $user->isLoggedIn()}<a n:href="removePost! $reply->id" class="ajax"><img src="{$basePath}/images/admin/del.gif"/></a>{/if}		
+                                        <span class="bbp-admin-links"></span>
+                                    </div><!-- .bbp-meta -->
+
+                                </div><!-- #post-136 -->
+
+                                <div class="post-136 topic type-topic status-publish hentry odd bbp-parent-forum-134 bbp-parent-topic-136 bbp-reply-position-1 user-id-1 topic-author instock">
+
+                                    <div class="bbp-reply-author">
+                                        <a href="#" title="View admin's profile" class="bbp-author-avatar" rel="nofollow"><img alt="" src="{$basePath}/images/default-avatar.png" class="avatar avatar-80 photo" height="80" width="80"></a><br><a href="#" title="View admin's profile" class="bbp-author-name" rel="nofollow">{if $reply->name != ''}Užívateľ{else}Antiradary.SK{/if}</a><br><div class="bbp-author-role">{if $reply->name != ''}{$reply->name}{else}{$reply->getUserObject()->getUserInfo()->username} {$reply->getUserObject()->getUserInfo()->surname}{/if}</div>
+                                    </div><!-- .bbp-reply-author -->
+
+                                    <div class="bbp-reply-content">
+                                        <p>{$reply->message}</p>
+                                    </div><!-- .bbp-reply-content -->
+                                </div><!-- .reply -->
+                            </li><!-- .bbp-body -->
+                            <?php $ix++; ?>
+                        {/foreach}
+                        
+                    </ul><!-- #topic-136-replies -->
+                    {/snippet}
+                </div>
+                <form class="form-horizontal ajax" role="form" n:name="replyForm">
+                    {if !$user->isLoggedIn()}
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Meno:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="inputEmail3" placeholder="Meno a priezvisko" n:name="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail4" class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="inputEmail4" placeholder="Email" n:name="email">
+                        </div>
+                    </div>
+                    {/if}
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <textarea n:name="message" class="form-control hd-300p" placeholder="Správa"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button n:name="send" type="submit" class="btn btn-primary flt_rght">Odoslať</button>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- end row --> 
+        </div><!-- end content -->
+    </div><!-- end container -->
+</section>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/frontend/bbpress.css">
+<link rel="stylesheet" href="{$basePath}/css/frontend/messages.css">
+{/block}

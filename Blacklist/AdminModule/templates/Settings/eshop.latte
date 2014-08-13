@@ -1,0 +1,177 @@
+{block content}        
+        <form n:name="editEshopForm">
+            <div style="float:right">
+            </div>
+                    
+
+            <div class="btn">
+                <div style="clear:both;font-size:0;height:0"></div>
+                <div id="baseform" class="t twbg" style="width:100%;">
+                    <h3><?php print(STR_322); ?></h3>
+                    <p><span><?php print(STR_323); ?>:</span>
+                        <select n:name="default_language"></select></p>
+                        <p><span><?php print(STR_324); ?>:</span>
+                    	<input  n:name="price_dph" style="width:570px;"></p>
+
+                    	<p><span><?php print(STR_325); ?>:</span>
+                    	<input  n:name="paggination" style="width:570px;" class=""></p>
+
+                        <p><span><?php print(STR_326); ?></span>
+                            <select n:name="default_additionals"></select>
+                        </p>
+                        
+                        <p>
+                            <span><?php print(STR_327); ?>:</span>
+                            <textarea n:name="email" size="90" class="" style="width:570px;height:150px"></textarea>
+                        </p>
+                        
+                        <p>
+                            <span><?php print(STR_328); ?>:</span>
+                            <textarea n:name="thanks" size="90" class="" style="width:570px;height:150px"></textarea>
+                        </p>
+                        
+                        <!--<p>
+                            <span><?php print(STR_329); ?>:</span>
+                            <textarea n:name="conditions" size="90" class="" style="width:570px;height:150px"></textarea>
+                        </p>-->
+                        
+                        <h3><?php print(STR_330); ?></h3>
+                        <p>
+                            <span><?php print(STR_331); ?>:</span>
+                            <input n:name="due_date" style="width:570px;height:40px;font-size:25px" class=""/>
+                        </p>
+                        <p>
+                            <span><?php print(STR_332); ?>:</span>
+                            <input n:name="taxation_date" style="width:570px;height:40px;font-size:25px" class=""/>
+                        </p>
+                        <p>
+                            <span><?php print(STR_333); ?>:</span>
+                            <input n:name="order_number" style="width:570px;" class=""/>
+                        </p>
+                        <input n:name="last_order">
+                        <input n:name="original_order_number"/>
+                        <p>
+                            <span><?php print(STR_334); ?>:</span>
+                            <input  n:name="company" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_335); ?>:</span>
+                            <input  n:name="company_tel" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_336); ?>:</span>
+                            <input  n:name="company_address" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_337); ?>:</span>
+                            <input  n:name="company_email" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_338); ?>:</span>
+                            <input  n:name="company_city" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_339); ?>:</span>
+                            <input  n:name="company_zip" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_340); ?>:</span>
+                            <input  n:name="company_url" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_341); ?>:</span>
+                            <input  n:name="ic" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_342); ?>:</span>
+                            <input  n:name="dic" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_343); ?>:</span>
+                            <input  n:name="account_number" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_344); ?>:</span>
+                            <input  n:name="swift" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_345); ?>:</span>
+                            <input  n:name="iban" style="width:570px;" class="">
+                        </p>
+                        <p>
+                            <span><?php print(STR_346); ?>:</span>
+                            <input n:name="ppl_expres_price" style="width:570px;" class=""/>
+                        </p>
+                        <!--<p>
+                            <span><?php print(STR_XX5); ?> </span>
+                            <input n:name="invoice_wdph"/>
+                        </p>-->
+                        <p>
+                            <span><?php print(STR_347); ?></span>
+                            <input n:name="messenger_price" style="width:570px;" class=""/>
+                        </p>
+                        <p>
+                            <span><?php print(STR_348); ?>:</span>
+                            <input n:name="stamp" style="width:570px;"/><br/>
+                            <input n:name="stamp_original"/>
+                            <img src="{$basePath}/{$eshopSettings->stamp}" width="200"/>
+                        </p>
+                        
+
+                    <td colspan="2"><input n:name=send type="submit" class="btn btn-success right" value="<?php print(STR_100); ?>"></td>
+
+
+                </form>
+                </div>
+{/block}
+
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+<link rel="stylesheet" href="{$basePath}/css/admin.css">
+<script type="text/javascript" src="scripts.js"></script>
+        <div class="heading"><?php print(STR_322); ?></div>
+        <style>
+            .twbg SPAN
+            {
+                background:#eee;
+            }
+        .t
+        {
+            float:left;
+        }
+        .t P
+        {
+            margin:0;
+            padding:0;
+            clear:left;
+            line-height:180%;
+        }
+        .t SPAN
+        {
+            width:230px;
+            font-weight:bold;
+            padding:0 5px;
+            margin:0 5px 2px 0;
+            display:block;
+            float:left;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+        }
+        .t SPAN.del
+        {
+            width:auto;
+            font-weight:normal;
+            background:#fff url(../../images/admin/del.gif) no-repeat center left;
+            padding:0 0 0 3px;
+            display:inline;
+            float:none;
+        }
+        .t SPAN.cprice
+        {
+            width:60px;
+            text-align:right;
+            font-weight:normal;
+        }
+        </style>
+{/block}

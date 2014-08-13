@@ -1,0 +1,428 @@
+{block title}Objednávka {$order->code} (ID={$order->id}){/block}
+
+{block content}
+<div style="clear:both">
+    <div style="position:absolute;right:0;top:0;">
+        <div style="display:inline-block;color:#000;padding:14px 20px 0 0;"><?php print(STR_86); ?>: <strong>{if $order->getUserObject()->account == NULL}Eshop{else}{$order->getUserObject()->account}{/if}</strong> &nbsp;|&nbsp; {$order->createDate|date:'%d.%m.%Y %H:%m'}</div>
+    </div>
+
+
+<div class="redBtn" style="float:left;width:85px;margin-right:5px"><a style="color:#cc0000" href="javascript:window.close()"><?php print(STR_42); ?></a></div>
+<div class="btn"><a href="{link Auth:login}"><?php print(STR_44); ?></a></div>
+
+<div class="redBtn" style="width:175px;margin-left:235px;float:left"><a href="{link Order:print $order->id}" target="_blank"><?php print(STR_45); ?></a>&nbsp;
+|&nbsp; <a n:href="getPDF! $order->id" target="_blank"><?php print(STR_46); ?></a><br />
+
+</div>
+{snippet export}
+<div id="export" class="ajax redBtn" style="margin-left:15px;width:50px;float:left;{if $order->export === 1}border-style: solid;border-width: 3px;border-color:red;{/if}"><a n:href="export! $order->id, $order->export" class="ajax" style="cursor:default;color:#000;"><?php print(STR_47); ?></a></div>
+{/snippet}
+{snippet invoicestate}
+<div id="export" class="ajax redBtn" style="margin-left:15px;width:100px;float:left;{if $order->invoice_wdph === 'true'}border-style: solid;border-width: 3px;border-color:red;{/if}"><a n:href="changeInvoiceState! $order->id" class="ajax" style="cursor:default;color:#000;">Faktura bez DPH</a></div>
+{/snippet}
+<div style="clear:both;width:100%;"><!-- --></div>
+
+
+<div style="clear:left;float:left;width:600px;;">
+
+{snippet languages}
+<a id="swfanast" href="#" onclick="t=this;sw('fanast2');return false;">
+    <span><?php print(STR_48); ?>: <strong id="fanast_label"><em>{$order->getLanguage()->name}</em></strong></span>
+</a>
+    <div id="fanast2" class="fanast dn">
+        <span><?php print(STR_49); ?></span>
+        {foreach $languages as $language}
+            <a class="ajax" n:href="changeLanguage! $order->id, $language->id">{$language->name}</a> |
+        {/foreach}
+    </div>
+    {/snippet}
+<script type="text/javascript">
+function fn1(s){
+	var o=this;
+	objs = getParent(o, 'DIV').getElementsByTagName('A');
+	for(i=0; i<objs.length; i++){
+		removeClass(objs[i], 'bo');
+	}
+	var ch=s.substring(0,1);
+	if(ch=="0" || ch=="1"){
+		ukaz_vyber_skladu = ch == "0" ? 0 : 1;
+		s = s.substring(1);
+	}
+	addClass(o, 'bo');
+	fnlabel(s);
+}
+function fn2(s){
+	var o=this;
+	if(hasClass(o, 'bo')) removeClass(o, 'bo');
+	else addClass(o, 'bo');
+	fnlabel(s);
+}
+function fnlabel(s){
+	$element('fanast_label').innerHTML = s;
+}
+</script>
+
+<br>
+<br>
+
+<span><?php print(STR_50); ?></span>:&nbsp;
+<a  class="ajax" onclick="if(confirm('Duplikovat objednávku - jen adresa?')) location.href={link duplicateAddress! $order->id}" target="_blank" >
+    <u><?php print(STR_51); ?></u>
+</a> &nbsp;|&nbsp;
+<a class="ajax" target="_blank" onclick="if(confirm('Duplikovat objednávku - kompletně?')) location.href={link duplicateAll! $order->id}">
+    <u><?php print(STR_52); ?></u>
+</a>
+&nbsp;|&nbsp;
+<a href="order_view.php?kod=5665/2014&setDobropis=1">
+    <u><?php print(STR_53); ?></u>
+</a>
+
+
+<div style="background:#f3f3f3;margin-top:15px;margin-bottom:13px;">
+
+<div class="tblView">
+<table cellspacing="0">
+<tr>
+<th><?php print(STR_54); ?></th>
+<td>
+    {snippet orders}
+    <div style="float:right">
+        {if $order->status == 'new'}
+            <a class="hbtn hbtnon">
+                <img src="{$basePath}/images/admin/icons/icon_question.gif" alt="Nevyřízeno">
+            </a>
+            <a class="hbtn ajax" n:href="changeStatus! 'done', $order->id">
+                <img src="{$basePath}/images/admin/icons/icon_cool.gif" alt="Vyřízeno">
+            </a>
+            <a class="hbtn ajax" n:href="changeStatus! 'broken', $order->id">
+                <img src="{$basePath}/images/admin/icons/icon_frown.gif" alt="Zrušeno">
+            </a>
+        {elseif $order->status == 'done'}
+            <a class="hbtn ajax" n:href="changeStatus! 'new', $order->id">
+                <img src="{$basePath}/images/admin/icons/icon_question.gif" alt="Nevyřízeno">
+            </a>
+            <a class="hbtn hbtnon">
+                <img src="{$basePath}/images/admin/icons/icon_cool.gif" alt="Vyřízeno">
+            </a>
+            <a class="hbtn ajax" n:href="changeStatus! 'broken', $order->id">
+                <img src="{$basePath}/images/admin/icons/icon_frown.gif" alt="Zrušeno">
+            </a>
+        {else}
+            <a class="hbtn ajax" n:href="changeStatus! 'new', $order->id">
+                <img src="{$basePath}/images/admin/icons/icon_question.gif" alt="Nevyřízeno">
+            </a>
+            <a class="hbtn ajax" n:href="changeStatus! 'done', $order->id">
+                <img src="{$basePath}/images/admin/icons/icon_cool.gif" alt="Vyřízeno">
+            </a>
+            <a class="hbtn hbtnon">
+                <img src="{$basePath}/images/admin/icons/icon_frown.gif" alt="Zrušeno">
+            </a>
+        {/if}
+    </div>
+    {/snippet}
+<div style="float:left;font-size:13px;color:#cc0000;letter-spacing:1px;padding-top:2px;"><strong>{$order->code}</strong></div>
+</td></tr>
+
+<tr>
+<th><?php print(STR_55); ?></th><td>{$order->createDate|date:'%d.%m.%Y %H:%m'}</td>
+</tr>
+</table>
+</div>
+
+
+<div class="tblView">
+<table cellspacing="0">
+<tr>
+<th id="thprovize"><?php print(STR_56); ?></th>
+<td>
+    {$order->username} {$order->surname}<a href="{link Order:editOrder $order->id}" style="float:right;color:darkblue;"><strong><?php print(STR_96); ?></strong></a>
+ </td></tr>
+<tr><th><?php print(STR_57); ?></th><td>{$order->address}</td></tr>
+<tr><th><?php print(STR_58); ?></th><td>{$order->city}<span style="float:right">{$order->country} &nbsp;&nbsp;</span>
+</td></tr>
+
+<tr><th><?php print(STR_59); ?></th><td>{$order->zip}</td></tr>
+</table>
+</div>
+
+
+<div class="tblView">
+<table cellspacing="0">
+<tr class="empty"><th><?php print(STR_60); ?></th><td>{if $order->firm != NULL}{$order->firm}{/if}</td></tr>
+<tr class="empty"><th><?php print(STR_61); ?></td><td>{$order->ico}</td></th></tr>
+<tr class="empty"><th><?php print(STR_62); ?></td><td>{$order->dic}</td></th></tr>
+<tr class="empty"><th><?php print(STR_57); ?></td><td>{if $order->firm != NULL}{$order->firm_address}{/if}</td></th></tr>
+<tr class="empty"><th><?php print(STR_58); ?></td><td>{if $order->firm != NULL}{$order->firm_city}{/if}</td></th></tr>
+<tr class="empty"><th><?php print(STR_59); ?></td><td>{if $order->firm != NULL}{$order->firm_zip}{/if}</td></th></tr>
+</table>
+</div>
+
+
+<script type="text/javascript">
+function emailsuccess() {
+        var em=prompt("Zadejte emailové adresy (oddělujte čárkou):", {$order->email})
+        if (em!=null && em!="") {
+            document.location={link sendMails! $order->id} + '&mails='+ em;
+        }
+  }
+function emailsuccess2() {
+        var em=prompt("VČETNĚ FAKTURY --- Zadejte emailové adresy (oddělujte čárkou):", {$order->email})
+        if (em!=null && em!="") {
+            document.location={link sendFMails! $order->id} + '&mails='+ em;
+        }
+  }
+</script>
+
+
+<div class="tblView">
+<table cellspacing="0">
+<tr><th><?php print(STR_63); ?></th><td>{$order->email}
+<span style="float:right">
+<a style="color:darkblue;" href="javascript:emailsuccess()" class="ajax"><?php print(STR_64); ?></a>
+&nbsp;|&nbsp; <a style="color:darkblue;" href="javascript:emailsuccess2()"><?php print(STR_65); ?></a>
+&nbsp;|
+<a href="javascript:void(0)" onclick="showMyPopup({link Order:emails $order->id},'HISTORIE ODESÍLÁLNÍ','',50,50)"
+><img align="absmiddle" src="{$basePath}/images/admin/icons/report.gif" alt="Historie odesílání"></a>
+</span>
+</td></tr>
+<tr><th><?php print(STR_66); ?></th><td>{$order->phone}</td></tr>
+
+
+
+
+
+<tr><th style="background:#b3d0ff"><?php print(STR_67); ?></th>
+    <td style="padding:6px">
+        {$order->deliveryType} za {$order->deliveryPrice} €
+<div style="float:right">
+    <form n:name="changeTrack">
+        Track #:<input n:name="track" style="border:1px dotted #aaa;background:#eee;padding:0;width:auto;height:19px;" size="20" value="{$order->track}"/>
+        <input n:name="send" id="trackbtn" value="OK" style="margin:6px 2px 2px 2px; height:21px;display:none;"/>
+        <input n:name="order"/>
+    </form>
+</div>
+<strong></strong>
+</td></tr>
+
+
+<tr><th style="background:#b3d0ff"><?php print(STR_68); ?></th><td style="padding:6px">
+        
+<div style="float:right">
+    {snippet status}
+        {if $order->send == 1}
+            <a n:href="send! $order->id" class="ajax"><img src="{$basePath}/images/admin/icons/odeslat.gif"></a>
+        {else}
+            <a n:href="send! $order->id" class="ajax"><?php print(STR_73); ?></a>
+        {/if}
+        &nbsp;&nbsp;&nbsp;
+        {if $order->senden == 0}
+          <a class="ajax" n:href="senden! $order->id"><?php print(STR_74); ?></a>
+          
+        {else}
+            <a class="ajax" n:href="senden! $order->id"><img src="{$basePath}/images/admin/img/odeslano.gif"></a>
+        {/if}
+        &nbsp;&nbsp;&nbsp;
+        {if $order->payment == 'K' || $order->payment == 'P'}
+            {if $order->paid == 'N'}
+                <a class="ajax" n:href="paid! $order->id">Zaplaceno</a>
+            {else}
+                <a class="ajax" n:href="paid! $order->id"><img src="{$basePath}/images/admin/icons/zaplaceno.gif" title="zaplaceno"/></a>
+            {/if}
+        {/if}</div>
+    {/snippet}
+    {snippet payment}
+<a n:href="changePayment! 'D', $order->id" class="ajax" name="platba" style="color:darkblue;{if $order->payment == 'D'}font-weight:bold;color:#cc0000{/if}"><?php print(STR_69); ?></a>
+&nbsp;|&nbsp;
+<a n:href="changePayment! 'H', $order->id" class="ajax" name="platba" style="color:darkblue;{if $order->payment == 'H'}font-weight:bold;color:#cc0000{/if}"><?php print(STR_70); ?></a>
+&nbsp;|&nbsp;
+<a n:href="changePayment! 'K', $order->id" class="ajax" name="platba" style="color:darkblue;{if $order->payment == 'K'}font-weight:bold;color:#cc0000{/if}"><?php print(STR_71); ?></a>
+&nbsp;|&nbsp;
+<a n:href="changePayment! 'P', $order->id" class="ajax" name="platba" style="color:darkblue;{if $order->payment == 'P'}font-weight:bold;color:#cc0000{/if}"><?php print(STR_72); ?></a>
+{/snippet}
+</td></tr>
+
+
+
+</table>
+</div>
+</div><!-- konec sedeho pozadi -->
+
+
+<div class="mt-cont">
+<ul>
+<li {if $order->note != ''}class="on"{/if}><a href="#" id="poznamka_obj" onclick="return mt(this);"><?php print(STR_75); ?></a></li>
+</ul>
+</div>
+{snippet note}
+<div class="tblView" style="margin-bottom:15px"><!-- zaË·tek tabs -->
+
+<table cellspacing="0" id="mt_poznamka_obj" {if $order->note == ''}class="dn"{/if}>
+<tr><td style="background:#ffffcc;">
+
+<form n:name="editNoteForm" class="ajax">
+    <textarea rows="3" style="width:100%;font-family:arial;font-size:13px;padding:3px;" onkeydown="$element('vzkazbtn2').className='';" id="vzkaz" n:name="note">{$order->note}</textarea>
+    <input n:name="order">
+    <input n:name="send" type="submit" value="<?php print(STR_76); ?>">
+</form>
+<script type="text/javascript"></script>
+</div>
+</td></tr>
+</table>
+    
+{/snippet}
+
+
+<script type="text/javascript">
+function mt(o)
+{
+	var i, s, cont, li, as=getParent(o,'UL').getElementsByTagName('A');
+	
+	for(i=0; i<as.length; i++){
+		if(o == as[i]) continue;
+		s = as[i].id;
+		$element('mt_'+s).className='dn';
+		li=getParent(as[i],'LI');
+		li.className = '';
+	}
+	
+	s = o.id;
+	cont = $element('mt_'+s);
+	
+	var ifr=$element('ifr_poznamka_prodejce');
+	if (ifr && cont.className && s=='poznamka_prodejce'){
+		$element('ifrLoading').style.display='block';
+		ifr.src='order_view_notes.php?provize=&highlight=&rand='+Math.random();
+	}else if(ifr){
+		ifr.style.display='none';
+	}
+	
+	cont.className = cont.className ? '' : 'dn';
+	li=getParent(o,'LI');
+	li.className = li.className ? '' : 'on';
+	return false;
+}
+</script>
+
+</div><!-- konec tabs -->
+
+
+
+
+
+
+
+
+<div class="tblView2" style="margin-bottom:0;">
+<table cellspacing="0">
+<thead>
+<tr>
+<td><?php print(STR_78); ?></td>
+<td><?php print(STR_79); ?></td><!-- 
+<td class="ar">bez DPH</td> -->
+<td class="ar"><?php print(STR_80); ?></td>
+<td class="ar"><?php print(STR_81); ?></td>
+<td class="ar"><?php print(STR_82); ?></td>
+<td class="ar"><?php print(STR_80); ?></td>
+</tr>
+</thead>
+<tbody>
+    <?php $maxDPH = 0; ?>
+    <?php $max = 0; ?>
+    <?php $ks = 0; ?>
+    <?php $maxdis = 0; ?>
+    <?php $maxdisw = 0; ?>
+    {foreach $order->getProducts() as $product}
+        <?php $pxx = 0; ?>
+        <?php $pxxx = 0; ?>
+        <tr class="e">
+            <td>{$product->code}</td>
+            <td>{$product->name}</td>
+            <td class="ar" style="white-space:nowrap;">{round($product->pricedph, 2)} &euro;
+                {if (strpos($product->discount, '%') == true)}
+                    
+                     <?php 
+                        $sleva = str_replace('', '%', $product->discount);
+                        $x = ($sleva * $product->pricedph) / 100;
+                        //$maxdis += ($product->pricedph - $x);
+                     ?>
+                     {if $product->discount != '' && $product->discount !== '0'}
+                     <br/>
+                     <span style="color:red">{$product->discount} </span><br/>
+                     {round(($product->pricedph - $x),2)} €
+                     
+                     {/if}
+                     <?php $pxx =($product->pricedph - $x) ?>
+                {else}
+                    {if $product->discount != '' && $product->discount !== '0'}
+                    <br/>
+                    <span style="color:red">{$product->discount} €</span><br/>
+                    {round(($product->pricedph - $product->discount), 2)} €
+                    
+                    {/if}
+                    <?php $pxx =($product->pricedph - $product->discount); 
+                    //$maxdis += ($product->pricedph - $product->discount);
+                    ?>
+                {/if}
+            </td>
+            <td class="ar" style="white-space:nowrap;">{$product->count} <?php print(STR_85); ?></td>
+            <td class="ar" style="white-space:nowrap;">
+                {round((round($pxx, 2) / $dph) * $product->count,2)} €
+                <?php $maxdisw += ((round($pxx,2) / $dph) * $product->count);?>
+            </td>
+            
+            <td class="ar" style="white-space:nowrap;"><strong> {round((round($pxx,2) * $product->count), 2)} &euro;</strong></td>
+            <?php $maxdis += (round($pxx,2) * $product->count); ?>
+            {if (strpos($product->discount, '%') == true)}
+                     <?php 
+                        $sleva = str_replace('', '%', $product->discount);
+                        $x = ($sleva * $product->pricedph) / 100;
+                     ?>
+                {else}
+                    <?php 
+                    ?>
+                {/if}
+            <?php $maxDPH += ($product->pricedph * $product->count); $max += ($product->price * (int)$product->count); $ks += $product->count;?> 
+        </tr>
+    {/foreach}
+    <tr>
+        <td colspan="4"><strong><?php print(STR_67); ?> - {$order->deliveryType} za {$order->deliveryPrice|number:2} €</strong>&nbsp;&nbsp;
+            <a style="color:darkblue" href="{link Order:editOrder $order->id}"><?php print(STR_87); ?></a>
+        </td>
+        <td class="ar">{($order->deliveryPrice / $dph)|number:2} &euro;</td>
+        <td class="ar"><strong>{$order->deliveryPrice|number:2} &euro;</strong></td>
+    </tr>
+</tbody>
+    <tfoot>
+        <tr>
+            <td style="border-top:2px solid #cc0000"></td>
+            <td style="border-top:2px solid #cc0000"></td>
+            <td style="border-top:2px solid #cc0000;color:#cc0000" class="ar">
+            <td style="border-top:2px solid #cc0000;white-space:nowrap;" class="ar nw">
+                <div style="font-size:11px;float:left;color:#000"><?php print(STR_83); ?>:</div><br>{$ks} <?php print(STR_85); ?>
+            </td>
+            <td style="border-top:2px solid #cc0000;white-space:nowrap;" class="ar">{round((round($maxdisw,2) + ($order->deliveryPrice / $dph)),2)} &euro;</td>
+            <td style="border-top:2px solid #cc0000;white-space:nowrap;" class="ar"><strong>{round((round($maxdis,2) + $order->deliveryPrice),2)} &euro;</strong></td>
+        </tr>
+    </tfoot>
+</table>
+</div>
+
+<div style="text-align:center;font-family:arial;font-size:13px;margin-bottom:25px">
+    <a href="{link Order:editProducts $order->id}" style="color:darkblue;display:inline-block;background:#ccc;border:1px solid #bbb;border-top:2px solid #aaa;padding:3px 14px 5px 14px;">
+        <strong><?php print(STR_84); ?></strong>
+    </a>
+</div>
+
+</div>
+
+
+
+
+
+<br>
+<br>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin.css">
+{/block}

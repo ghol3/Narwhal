@@ -1,0 +1,84 @@
+{block title}{$settings->title} - Poradňa{/block}
+
+{block content}
+<section class="post-wrapper-top jt-shadow clearfix">
+    <div class="container">
+        <div class="col-lg-12">
+            <h2>Poradňa</h2>
+            <ul class="breadcrumb pull-right">
+                <li><a href="{link Homepage:default}">Hlavná</a></li>
+                <li>Poradňa</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="white-wrapper">
+    <div class="container">
+        <div class="row">
+            
+            <div class="fullwidth clearfix">
+                <div class="col-lg-12">
+                    {snippet flashes}
+                    <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+                {/snippet}
+                {snippet posts}
+                    <div id="bbpress-forums">
+                        <ul class="bbp-forums">
+                            <li class="bbp-header">
+                                <ul class="forum-titles">
+                                    <li class="bbp-forum-info">Vlákna</li>
+                                    <li class="bbp-forum-topic-count">Odpovedi</li>
+                                    <li class="bbp-forum-freshness">Užívateľ</li>
+                                </ul>
+                            </li><!-- .bbp-header -->
+                            
+                            {foreach $posts as $post}
+                            <li class="bbp-body">		
+                                <ul class="forum type-forum status-publish hentry loop-item-0 odd bbp-forum-status-open bbp-forum-visibility-publish">
+                                    <li class="bbp-forum-info">
+                                        <a class="bbp-forum-title" href="{link Forum:post $post->id}" title="{$post->subject}">{$post->subject}</a>
+                                        <div class="bbp-forum-content">{$post->message|truncate:100}</div>
+                                    </li>
+                                    <li class="bbp-forum-topic-count">{count($post->getReply())}</li>
+                                    <li class="bbp-forum-freshness">
+                                        <a href="#" title="Reply To: Please NOTIFY YOUR CUSTOMERS of UPDATES">{$post->date|date:'%d.%m.%Y %H:%m'}</a>
+                                        <p class="bbp-topic-meta">
+                                            <span class="bbp-topic-freshness-author">
+                                                <a href="#" title="View admin profile" class="bbp-author-avatar" rel="nofollow">
+                                                    <img alt="" src="http://0.gravatar.com/avatar/0d91c692acdcc514b006840d870dd4a6?s=14&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D14&amp;r=G" class="avatar" height="14" width="14">
+                                                </a>&nbsp;<a href="#" title="View admin profile" class="bbp-author-name" rel="nofollow">{$post->name}</a>{if $user->isLoggedIn()}<a n:href="removePost! $post->id" class="ajax"><img src="{$basePath}/images/admin/del.gif"/></a>{/if}
+                                            </span>
+                                        </p>
+                                    </li>
+                                </ul><!-- end bbp forums -->
+                            </li>
+                            {/foreach}
+                            
+                        </ul><!-- .forums-directory -->
+                    </div> <!-- /bbpress -->
+                    {/snippet}
+                    <div class="flt_rght"><a href="{link Forum:add}" class="btn btn-primary">Pridať vlákno</a></div>
+                    <div class="clearfix"></div>
+
+                    <div class="pagination_wrapper text-center">
+                        <!-- Pagination Normal -->
+                        <ul class="pagination">
+                            {if !$paginator->first}<li><a href="{link Forum:posts ($paginator->page - 1)}">«</a></li>{/if}
+                            {for $i = 1; $i < $paginator->getItemCount() + 1; $i++}
+                                <li {if $paginator->page == $i}class="active"{/if}><a href="{link Forum:posts $i}">{$i}</a></li>
+                            {/for}
+                            {if !$paginator->last}<li><a href="{link Forum:posts ($paginator->page + 1)}">»</a></li>{/if}
+                        </ul>
+                    </div>
+
+                </div><!-- end col-lg-12 -->
+            </div><!-- end fullwidth -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/frontend/bbpress.css">
+<link rel="stylesheet" href="{$basePath}/css/frontend/messages.css">
+{/block}

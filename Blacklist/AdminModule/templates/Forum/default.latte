@@ -1,0 +1,9 @@
+{block content}
+    {foreach $articles as $article}
+        <a href="{link Forum:new $article->id}">{$article->title}</a><br />
+    {/foreach}
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin2.css">
+{/block}

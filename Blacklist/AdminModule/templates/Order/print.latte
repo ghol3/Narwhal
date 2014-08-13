@@ -1,0 +1,368 @@
+{block title}Faktura {$order->code} (ID={$order->id}){/block}
+{block content}
+    {snippet date}
+    <div id="favyst">
+        <a class="linkclose" id="swfavyst0" href="#" onclick="var t=this;sw('favyst0',0,function(i){ t.className=i?'linkopen':'linkclose';});return false;"><?php print(STR_95); ?>: {$order->createDate|date:'%d.%m.%Y'}</a>
+        <div id="favyst0" class="dn" style="padding-top:5px">
+            <form action="{link changeOrderDate! $order->id}" method="post" class="ajax">
+                (den.měsíc.rok)
+                <input type="text" name="mydate" size="20" value="{$order->createDate|date:'%d.%m.%Y'}" />
+                <input type="submit" value="Změnit" />
+            </form>
+        </div>
+    </div>
+    {/snippet}
+        
+        <table class="maintable" cellspacing="0" cellpadding="0" id="pagebreak">
+            <tr class="pb-main">
+                <td style="font-size:15px;padding:5px;text-align:left;" colspan="2">
+                <div style="float:right;"><b>{$language->title} {$order->code}</b></div>
+                <b>{$settings->siteurl}</b></td>
+            </tr>
+            <tr class="pb-main">
+                <td style="border:1px solid #ccc;width:50%" valign="top">
+                    <div style="padding:10px 10px 0 10px">
+                        <div class="w100" align="left">
+                            {$language->supplier}:<br />
+                            <div style="float:right;padding-right:5px;">
+                                {$language->phone} {$eshopSettings->company_tel}<br>
+                                {$eshopSettings->company_email}<br>{$eshopSettings->company_url}<br>
+                            </div>
+                            <div class="adresa">
+                                <strong>{$eshopSettings->company}</strong><br />
+                                {$eshopSettings->company_address}<br />
+                            </div>
+                            {$eshopSettings->company_zip} {$eshopSettings->company_city}<br>
+                            <div class="adresa">
+                                {$language->ico}: {$eshopSettings->ic}<br>
+                                {$language->dic}: {$eshopSettings->dic}<br>
+                                {$language->dph}<br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w100">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="padding:4px 10px;" align="left"><strong>{$language->account_number}:</strong></td>
+                                <td style="border:2px solid #000;text-align:center;border-right:0;letter-spacing:0.2em;font-size:13px;font-weight:bold">{$eshopSettings->account_number}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="padding:5px 10px;font-size:11px;" align="left">
+                        {$language->swift}: {$eshopSettings->swift}<br>
+                        {$language->iban}: {$eshopSettings->iban}</div>
+                    <div style="padding:10px">
+                        <div class="w100" align="left">
+                            <table cellpadding="0" cellspacing="0" class="datumy">
+                                <?php 
+                                    $type = NULL;
+                                    if($order->payment == 'H'){$type = $language->casch;}
+                                    else if($order->payment == 'K'){$type = $language->cart;}
+                                    else if($order->payment == 'D'){$type = $language->delivery;}
+                                    else{ $type = $language->transfer;}
+                                ?>
+                                <tr>
+                                    <td>{$language->form_of_payment}</td>
+                                    <td class="label" style="border:0">
+                                        <input type="text" value="{$type}" class="edit" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{$language->date_of_issue}</td>
+                                    <td class="label">
+                                        <input type="text" value="{$order->createDate|date:'%d.%m.%Y'}" class="edit" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <?php 
+                                        $date = new \Nette\DateTime($order->createDate);
+                                        $mydate = $date->getTimestamp() + ((24 * 60 * 60) * $eshopSettings->due_date);
+                                        $mytxdate =$date->getTimestamp() + ((24 * 60 * 60) * $eshopSettings->taxation_date);
+                                    ?>
+                                    <td>{$language->due_date}</td>
+                                    <td class="label">
+                                        <input type="text" value="{if $order->payment == 'H'}{$order->createDate|date:'%d.%m.%Y'}{else}{$mydate|date:'%d.%m.%Y'}{/if}" class="edit" readonly>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{$language->real_date}</td>
+                                    <td class="label"><input type="text" value="{if $order->payment == 'H'}{$order->createDate|date:'%d.%m.%Y'}{else}{$mytxdate|date:'%d.%m.%Y'}{/if}" class="edit" readonly></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td style="border:1px solid #ccc" valign="top">
+                    <div style="padding:10px">
+                        <div class="w100" align="left">
+                            <table cellpadding="1" cellspacing="0">
+                                <tr>
+                                    <td>{$language->variable}</td>
+                                    <td align="right">{str_replace('/', '', $order->code)}</td>
+                                </tr>
+                                <tr>
+                                    <td>{$language->myorder}</td>
+                                    <td align="right">{$order->createDate|date:'%d.%m.%Y'}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="padding:10px;border:2px solid #000;" align="left">
+                        <b>{$language->subscriber}:</b>
+                        <div style="padding:3px">
+                            <div class="w100">
+                                <div class='adresa'>
+                                    {$order->username} {$order->surname}<br />
+                                    {$order->address}
+                                </div>
+                                {$order->zip} {$order->city}<br />
+                                {if $order->ico != '' && $order->dic != ''}
+                                    IČ: {$order->ico}<br/>
+                                    DIČ: {$order->dic}<br/>
+                                {/if}
+                                <div class="adresa">
+                                    <div style='font-size:11px;padding-top:5px'>Tel.: {if $order->phone}{$order->phone}{else}{$language->none}{/if}, Email: {if $order->email}{$order->email}{else}{$language->none}{/if}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding:10px;padding-top:14px" align="left">
+                        <b>{$language->final_beneficiary}:</b>
+                        <div style="padding:3px">
+                            <div class="w100">
+                                <div class='adresa'>
+                                    {$order->username} {$order->surname}<br />
+                                    {$order->address}
+                                </div>
+                                {$order->zip} {$order->city}<br />
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {if $order->note != ''}
+            <tr class='pb-main'>
+                <td colspan='2' style='padding:10px;border:1px solid #ccc;text-align:left;'>
+                    {$order->note}
+                </td>
+            </tr>
+            {/if}
+            <tr class="pb-main">
+                <td colspan="2" style="padding:10px;border:1px solid #ccc;text-align:left;">
+                Dodanie je oslobodené od dane (podľa §74 zákona 222/2004 Z.z.)
+                </td>
+            </tr>
+            <tr class="pb-main">
+                
+                <td colspan="2" style="padding:10px;border:1px solid #ccc;">
+                {if $order->invoice_wdph == 'false'}
+                <!-- FAKTURA S DPH -->
+                    <table class="zbozi" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th>{$language->description}</th>
+                            <th>{$language->price} / {$language->stack}</th>
+                            <th>Zľava</th>
+                            <th>{$language->number}</th>
+                            <th>{$language->price}</th>
+                        </tr>
+                        <?php $maxDPH = 0; $maxWDPH = 0;?>
+                        {foreach $order->getProducts() as $product}
+                        <tr>
+                            <td align="left">{$product->name}</td>
+                            <td style="line-height:140%;white-space:nowrap;">{(round($product->price,2))|number:2} € {$language->without_dph}<br/>{round($product->pricedph,2)|number:2} € {$language->with_dph}</td>
+                            <td>
+                                {if (strpos($product->discount, '%') == true)}
+                                    <?php 
+                                        $sleva = str_replace('', '%', $product->discount);
+                                        $x = (($sleva * $product->pricedph) / 100);
+                                        $maxDPH += (round($product->pricedph,2) * $product->count) - ($x * $product->count);
+                                        $maxWDPH += (round($product->price,2) * $product->count) - (($x / $eshopSettings->dph) * $product->count);
+                                    ?>
+                                    {(round(($x / $eshopSettings->dph),2) + 0)|number:2} € {$language->without_dph}<br/>{$x + 0} € {$language->with_dph}
+                                {else}
+                                    <?php
+                                    $maxDPH += (round($product->pricedph,2) * $product->count) - ($product->discount * $product->count);
+                                    $maxWDPH += (round($product->price,2) * $product->count) - (($product->discount / $eshopSettings->dph) * $product->count);
+                                    ?>
+                                    {(round(($product->discount / $eshopSettings->dph),2) + 0)|number:2} € {$language->without_dph}<br/>{($product->discount + 0)|number:2} € {$language->with_dph}
+                                {/if}   
+                            </td>
+                            <td align="center">{$product->count}</td>
+                            {if (strpos($product->discount, '%') == true)}
+                                <td style="line-height:140%;white-space:nowrap">{(round(((round($product->price,2) * $product->count) - (($x / $eshopSettings->dph) * $product->count)),2))|number:2} € {$language->without_dph}<br/>{(round(((round($product->pricedph,2) * $product->count) - ($x * $product->count)),2))|number:2} € {$language->with_dph} </td>
+                            {else}
+                                <td style="line-height:140%;white-space:nowrap">{(round(((round($product->price,2) * $product->count) - (($product->discount / $eshopSettings->dph) * $product->count)),2))|number:2} € {$language->without_dph}<br/>{(round(((round($product->pricedph,2) * $product->count) - (($product->discount) * $product->count)),2))|number:2} € {$language->with_dph} </td>
+                            {/if}
+                        </tr>
+                        {/foreach}
+                        <tr>
+                            <td colspan="4" class="c noborder">{$language->delivery_price}:</td>
+                            <td style="line-height:140%;white-space:nowrap">
+                                {(round(($order->deliveryPrice / $eshopSettings->dph),2))|number:2} € {$language->without_dph}<br>
+                                {(round(($order->deliveryPrice + 0),2))|number:2} € {$language->with_dph}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="noborder" style="text-align:right;"><b>{$language->final_price}:</b></td>
+                            <td style="line-height:140%;white-space:nowrap">
+                                {(round((round($maxWDPH,2) + ($order->deliveryPrice / $eshopSettings->dph)),2))|number:2} € {$language->without_dph}<br>
+                                {(round(($maxDPH + ($order->deliveryPrice + 0)),2))|number:2} € {$language->with_dph}
+                    </table>
+                    {else}
+                    <!-- FAKTURA BEZ DPH -->
+                        <table class="zbozi" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <th>{$language->description}</th>
+                                                        <th>{$language->price} {$language->without_dph} / {$language->stack}</th>
+                                                        <th>Zľava {$language->without_dph}</th>
+                                                        <th>{$language->number}</th>
+                                                        <th>{$language->price} {$language->without_dph}</th>
+                                                    </tr>
+                                                     <?php $maxDPH = 0; $maxWDPH = 0;?>
+                                                     {foreach $order->getProducts() as $product}
+                                                     <tr>
+                                                        <td align="left">{$product->name}</td>
+                                                        <td style="line-height:140%;white-space:nowrap;">{(round($product->price,2))|number:2} €</td>
+                                                        <td>
+                                                            {if (strpos($product->discount, '%') == true)}
+                                                            <?php
+                                                                $sleva = str_replace('', '%', $product->discount);
+                                                                $x = (($sleva * $product->pricedph) / 100);
+                                                                $maxDPH += (round($product->pricedph,2) * $product->count) - ($x * $product->count);
+                                                                $maxWDPH += (round($product->price,2) * $product->count) - (($x / $eshopSettings->dph) * $product->count);
+                                                            ?>
+                                                            {(round(($x / $eshopSettings->dph),2) + 0)|number:2} €}
+                                                            {else}
+                                                            <?php
+                                                                $maxDPH += (round($product->pricedph,2) * $product->count) - ($product->discount * $product->count);
+                                                                $maxWDPH += (round($product->price,2) * $product->count) - (($product->discount / $eshopSettings->dph) * $product->count);
+                                                            ?>
+                                                            {(round(($product->discount / $eshopSettings->dph),2) + 0)|number:2} €
+                                                            {/if}
+                                                            </td>
+                                                            <td align="center">{$product->count}</td>
+                                                                {if (strpos($product->discount, '%') == true)}
+                                                                    <td style="line-height:140%;white-space:nowrap">{(round(((round($product->price,2) * $product->count) - (($x / $eshopSettings->dph) * $product->count)),2))|number:2} € {if $order->invoice_wdph == 'false'}{$language->without_dph}{/if}</td>
+                                                                {else}
+                                                                    <td style="line-height:140%;white-space:nowrap">{(round(((round($product->price,2) * $product->count) - (($product->discount / $eshopSettings->dph) * $product->count)),2))|number:2} € {if $order->invoice_wdph == 'false'}{$language->without_dph}{/if} </td>
+                                                                {/if}
+                                                        </tr>
+                                                        {/foreach}
+                                                        <tr>
+                                                            <td colspan="4" class="c noborder">{$language->delivery_price}:</td>
+                                                            <td style="line-height:140%;white-space:nowrap">
+                                                                {(round(($order->deliveryPrice / $eshopSettings->dph),2))|number:2} €
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="4" class="noborder" style="text-align:right;"><b>{$language->final_price}:</b></td>
+                                                            <td style="line-height:140%;white-space:nowrap">
+                                                                {(round((round($maxWDPH,2) + ($order->deliveryPrice / $eshopSettings->dph)),2))|number:2} €
+                                                            </table>
+                    {/if}
+                </td>
+            </tr>
+        </table>
+
+        <!-- ODDELENI -->
+
+        <table class="maintable" cellspacing="0" cellpadding="0">
+        {if $order->invoice_wdph == 'false'}
+            <tr class="pb-box">
+                <td colspan=2 style="border:1px solid #ccc;">
+                    <div style="padding:10px;">
+                        <table style="width:100%;text-align:right;">
+                            <tr>
+                                <td width="25%">{$language->tax_base}:</td>
+                                <td width="25%">{$language->vat_rate}:</td>
+                                <td width="25%">{$language->amout_vat}:</td>
+                                <td width="25%">{$language->total}:</td>
+                            </tr>
+                            <tr>
+                                <td>{(round((round($maxWDPH,2) + ($order->deliveryPrice / $eshopSettings->dph)),2))|number:2} €</td>
+                                <td>20%</td>
+                                <td>{(round((round($maxDPH,2) + ($order->deliveryPrice + 0))-($maxWDPH + ($order->deliveryPrice / $eshopSettings->dph)),2))|number:2} €</td>
+                                <td>{(round(($maxDPH + ($order->deliveryPrice + 0)),2))|number:2} €</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            {/if}
+{if $order->invoice_wdph == 'false'}
+            <tr class="pb-box">
+                <td colspan=2 style="border:1px solid #ccc;font-size:14px;text-align:right;">
+                    <div style="padding:10px;">
+                        <b>{$language->total_total}:</b>
+                        <div style="font-size:18px;padding:8px 0 0 0">{(round((round($maxDPH,2) + ($order->deliveryPrice + 0)),2))|number:2} €</div>
+                    </div>
+                </td>
+            </tr>
+            {else}
+            <tr class="pb-box">
+                            <td colspan=2 style="border:1px solid #ccc;font-size:14px;text-align:right;">
+                                <div style="padding:10px;">
+                                    <b>{$language->total_total}:</b>
+                                    <div style="font-size:18px;padding:8px 0 0 0">{(round((round($maxWDPH,2) + ($order->deliveryPrice + 0)),2))|number:2} €</div>
+                                </div>
+                            </td>
+                        </tr>
+            {/if}
+
+            <tr class="pb-box">
+                <td colspan="2" style="padding-top:20px;padding-bottom:0" valign="bottom">
+                    <div style="height:3.4cm">
+                        <div style="float:right;width:50%;">{$language->supplier}:
+                            <div style="text-align:center"><img src="{$basePath}/{$eshopSettings->stamp}" width="220"/></div>
+                        </div>
+                        {$language->subscriber}:
+                    </div>
+                    <div style="clear:both;border-top:1px solid #ccc;padding-top:2px;font-size:10px;">
+                        <div style="float:right"></div>
+                        {$language->footer}
+                    </div>
+                </td>
+            </tr>
+        </table>
+{/block}
+
+{block head}
+<link rel="stylesheet" href="{$basePath}/css/admin.css">
+<style>
+HTML,BODY{ }
+BODY{ font-family:arial;text-align:center;margin:0;padding:40px 0 15px 0;}
+BODY,TABLE{ font-size:12px}
+.light{ color:#444;width:50%}
+INPUT{ margin:0 !important;}
+.label{ border:1px solid #aaa;text-align:center}
+.edit{ border:0;padding:2px;margin:1px 0 0 0;text-align:center;width:95px;font-size:12px;font-family:arial}
+TABLE.datumy TD{ vertical-align:bottom}
+.w100{ width:100%;line-height:135%;}
+.w100 TABLE{ width:100%;}
+.maintable{ width:19cm;margin:0 auto;border-collapse:collapse;}
+.maintable TD{ margin:0;padding:0;}
+.adresa{ padding-top:2px;}
+.zbozi{ margin-bottom:5px;margin-top:10px;border-collapse:collapse;width:100%;}
+.zbozi TH,
+.zbozi TD{ padding:2px 4px;margin:0;border:1px solid #ccc;}
+.zbozi TH{ font-weight:normal;border-bottom:2px solid #ccc;text-align:left;}
+.zbozi TD.noborder{ border-left:0;border-top:0;border-bottom:0;background:transparent;text-align:right;}
+
+#favyst{ font-weight:bold;text-align:left;padding:8px 8px 7px 8px;position:fixed;background:#ffffcc;border-bottom:1px solid #ccc;
+width:100%;
+font-size:13px;
+top:0;
+}
+
+.linkopen,.linkclose{ background:url(img/light_openclose.gif) no-repeat 0 -28px;padding-left:12px;font-size:11px;color:#333;margin:0;
+text-decoration:none;}
+.linkopen{ background-position:0 5px;}
+.dn{ display:none}
+.db{ display:block}
+</style>
+<style media="print">
+BODY{ margin:0;padding:0;}
+#favyst{ display:none;}
+</style>
+{/block}
