@@ -3,7 +3,7 @@ parameters:
 
 nette:
 	database:
-		dsn: 'mysql:host=127.0.0.1;dbname=eshop'
+		dsn: 'mysql:host=127.0.0.1;dbname=Narwhal'
 		user: root
 		password:
 		options:

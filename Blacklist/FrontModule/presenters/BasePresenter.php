@@ -29,12 +29,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
         parent::__construct();
     }
     
-    function startup()
-    {
-        parent::startup();
-        \AntispamControl::register();
-    }
-    
     /**
      * 
      * @param \Nette\Database\Context $db
