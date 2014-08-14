@@ -1,15 +1,22 @@
-Нарвал СУК
-==========
+[Narwhal CMS](http://www.narwhal-cms.org)
+=========================================
 
-Разработанная в PHP 5.3 на [Beepvix] (http://beepvix.com).
-Создано: ["Nette"] (http://nette.org).
+Narwhal is a content management system designed for web blogs.
+It is created exclusively for developers but is also friendly for users.
+At this moment, the system is still in development.
 
-Что это такое Нарвал СУК?
-------------------------
+Libs
+----
 
-Нарвал это новая система управления контентом на питание от рамках "Nette".
+[Nette Framework] (http://nette.org)
 
-Установка
----------
+Installation
+------------
 
-Вы все еще не можете использовать его. Нарвал СУК все еще разрабатывается.
+At this moment, the system is still in development. This installation is only for programmers.
+
+- clone the repository to your computer (preferably a folder with a local web server)
+- insert sql script to your database (the database must be named "Narwhal")
+- database configuration can be changed in /Config/config.local.neon
+- in the administration (/admin) is the default account where you can create your own account
+- account = admin; password = admin123
